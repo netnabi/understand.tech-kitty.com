@@ -2,16 +2,20 @@
 ## IT 이해를 위해 스스로 창조해 나가는 블로그 글 쓰기
 
 ### 실행법
-- 메뉴얼 : https://docsify.js.org/#/quickstart
+- 메뉴얼 : https://gohugo.io/getting-started/usage/
 ```shell
-$ npx docsify serve ./docs
+$ hugo server
+```
+-- http://localhost:1313/
+
+### New Article in content folder
+```
+$ hugo new testing.md
+# then create new md file in /content folder, then check "draft" property.
 ```
 
-
-### Matching routes
+### Build static files
 ```
-docs/README.md        => http://domain.com
-docs/guide.md         => http://domain.com/#/guide
-docs/zh-cn/README.md  => http://domain.com/#/zh-cn/
-docs/zh-cn/guide.md   => http://domain.com/#/zh-cn/guide
+$ hugo -D
+# then create new html file in /docs folder
 ```

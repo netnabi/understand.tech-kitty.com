@@ -1,0 +1,7 @@
+baseURL = 'http://understand.tech-kitty.com/'
+languageCode = 'ko-KR'
+title = 'TECH-고냥이'
+publishDir = 'docs'
+theme = 'ananke'
+[markup.goldmark.renderer]
+unsafe= true

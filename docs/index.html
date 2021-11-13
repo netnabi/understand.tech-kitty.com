@@ -20,9 +20,63 @@
         '/.*/_sidebar.md': '/_sidebar.md'
       },
       loadNavbar: true,
+      plugins: [
+        function(hook, vm) {
+          hook.init(function() {
+            // Called when the script starts running, only trigger once, no arguments,
+          });
+
+          hook.beforeEach(function(content) {
+            // Invoked each time before parsing the Markdown file.
+            // ...
+            return content;
+          });
+
+          hook.afterEach(function(html, next) {
+            // Invoked each time after the Markdown file is parsed.
+            // beforeEach and afterEach support asynchronous。
+            // ...
+            // call `next(html)` when task is done.
+            next(html);
+          });
+
+          hook.doneEach(function() {
+            // Invoked each time after the data is fully loaded, no arguments,
+            // ...
+          });
+
+          hook.mounted(function() {
+            // Called after initial completion. Only trigger once, no arguments.
+          });
+
+          hook.ready(function() {
+            // Called after initial completion, no arguments.
+            
+            // Plugin : Facebook Comment ------------------------------------------------------------------
+            var elMain = document.getElementById("main").parentElement;
+            var elFbComment = document.getElementById("fb-comments");
+            elMain.appendChild(elFbComment);
+
+            {
+              var fbScript = document.createElement("script");
+              fbScript.setAttribute("src", "https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v12.0");
+              fbScript.setAttribute("nonce", "YGoGPMMr");
+              fbScript.setAttribute("crossorigin", "anonymous");
+              document.body.appendChild(fbScript);
+            }
+            // Plugin : Facebook Comment ------------------------------------------------------------------
+
+          });
+        }
+      ]
     }
   </script>
   <!-- Docsify v4 -->
   <script src="/res/docsify@4.js"></script>
+  <div>
+    <!-- Plugin : Facebook Comment -------------------------------------------------------------------------------------- -->
+    <div id="fb-comments" class="fb-comments" style="width:100%" data-href="https://understand.tech-kitty.com/#/" data-width="100%" data-numposts="5"></div>
+    <!-- Plugin : Facebook Comment END----------------------------------------------------------------------------------- -->
+  </div>
 </body>
 </html>

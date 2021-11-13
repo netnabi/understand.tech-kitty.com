@@ -1,15 +1,9 @@
 <!-- _navbar.md -->
 
-* Getting started
+* 보조 도구들
+  * [마크다운(MARK DOWN)](https://www.markdownguide.org/cheat-sheet/)
+  * [정적 웹사이트 도구](https://docsify.js.org/)
 
-  * [Quick start](quickstart.md)
-  * [Writing more pages](more-pages.md)
-  * [Custom navbar](custom-navbar.md)
-  * [Cover page](cover.md)
-
-* Configuration
-  * [Configuration](configuration.md)
-  * [Themes](themes.md)
-  * [Using plugins](plugins.md)
-  * [Markdown configuration](markdown.md)
-  * [Language highlight](language-highlight.md)
+* 즐겨찾는 도구
+  * [Fork GIT client](https://git-fork.com/)
+  * [VS Code](https://code.visualstudio.com/)

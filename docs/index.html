@@ -24,5 +24,22 @@
   </script>
   <!-- Docsify v4 -->
   <script src="/res/docsify@4.js"></script>
+
+  <!-- Plugin : Gitalk -------------------------------------------------------------------------------------- -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+  <script>
+    const gitalk = new Gitalk({
+      clientID: 'a442b8bc7b1ad48f1e0f',
+      clientSecret: 'cd67221a528c2a0899961153d60a7a89320e6e24',
+      repo: 'https://github.com/netnabi/understand.tech-kitty.com-comments.git',
+      owner: 'netnabi@gmail.com',
+      admin: ['Github repo collaborators, only these guys can initialize github issues'],
+      // facebook-like distraction free mode
+      distractionFreeMode: false
+    })
+  </script>
+  <!-- Plugin : Gitalk END----------------------------------------------------------------------------------- -->
 </body>
 </html>

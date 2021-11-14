@@ -1,11 +1,11 @@
 baseURL = 'https://understand.tech-kitty.com/'
 languageCode = 'ko-KR'
-title = 'TECH-고냥이'
+title = 'TECH-냥이'
 publishDir = 'docs'
 # Clean and minimal personal [blog theme for Hugo](https://github.com/vividvilla/ezhil)
 theme = "ezhil"
 
-copyright = "© Copyright tech-kitty.com"
+copyright = "계속하면, 언젠가는 되는 날이 올거야."
 
 [markup.goldmark.renderer]
 unsafe= true
@@ -31,7 +31,7 @@ summaryLength = 20
 
 [params]
     # Blog subtitle which appears below blog title. Supports markdown.
-    subtitle = "Clean and minimal personal [blog theme for Hugo](https://github.com/vividvilla/ezhil)"
+    subtitle = "개발, IT에 대한 소소한 이야기"
 
     # Content types which are included in home page recent posts list.
     # mainSections = ["posts"]
@@ -52,9 +52,9 @@ summaryLength = 20
     # Custom CSS added to default styles. Files added to `static` folder is copied as it is to
     # root by Hugo. For example if you have custom CSS file under `static/css/custom.css` then
     # you can specify custom css path as `css/custom.css`.
-    customCSS = "css/custom.css"
+    # customCSS = "css/custom.css"
     # Custom CSS added to dark mode style.
-    customDarkCSS = "css/custom-dark.css"
+    # customDarkCSS = "css/custom-dark.css"
 
     # Custom list of Javascript files to load. Just like custom CSS you can place js files under
     # `static/js` folder and specify path here as `js/script-name.js`. You can also specify full url,
@@ -64,22 +64,22 @@ summaryLength = 20
 
 # Main menu which appears below site header.
 [[menu.main]]
-name = "Home"
+name = "처음으로"
 url = "/"
 weight = 1
 
 [[menu.main]]
-name = "All posts"
+name = "모든 글"
 url = "/posts"
 weight = 2
 
 [[menu.main]]
-name = "About"
-url = "/about"
+name = "주제별 분류"
+url = "/subjects"
 weight = 3
 
 [[menu.main]]
-name = "Tags"
+name = "태그"
 url = "/tags"
 weight = 4
 

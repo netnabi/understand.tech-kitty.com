@@ -62,6 +62,8 @@ summaryLength = 20
     # customJS = ["js/custom.js", "js/xyz.js", "https://code.jquery.com/jquery-3.4.1.js"]
     customJS = ["js/custom.js"]
 
+    facebookAppId = "299152852116172"
+
 # Main menu which appears below site header.
 [[menu.main]]
 name = "처음으로"

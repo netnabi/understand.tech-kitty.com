@@ -1,4 +1,4 @@
-baseURL = 'https://understand.tech-kitty.com/'
+baseURL = 'https://tech-kitty.com/'
 languageCode = 'ko-KR'
 title = 'TECH-냥이'
 publishDir = 'docs'

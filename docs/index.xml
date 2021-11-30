@@ -2,28 +2,28 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>TECH-냥이</title>
-    <link>https://understand.tech-kitty.com/</link>
+    <link>https://tech-kitty.com/</link>
     <description>Recent content on TECH-냥이</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
     <copyright>계속하면, 언젠가는 되는 날이 올거야.</copyright>
-    <lastBuildDate>Thu, 18 Mar 2021 12:13:32 +0530</lastBuildDate><atom:link href="https://understand.tech-kitty.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 18 Mar 2021 12:13:32 +0530</lastBuildDate><atom:link href="https://tech-kitty.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Article-1 뭘 그리 배운게 없니?</title>
-      <link>https://understand.tech-kitty.com/posts/article-00001/</link>
+      <link>https://tech-kitty.com/posts/article-00001/</link>
       <pubDate>Thu, 18 Mar 2021 12:13:32 +0530</pubDate>
       
-      <guid>https://understand.tech-kitty.com/posts/article-00001/</guid>
+      <guid>https://tech-kitty.com/posts/article-00001/</guid>
       <description>This is..
 얼마나 뭇 커다란 때까지 생명을 칼이다. 있음으로써 그러므로 있는 힘차게 없으면 위하여 칼이다. 영원히 피어나기 이상 끓는 풀이 따뜻한 웅대한 어디 약동하다. 것은 있는 듣기만 있는가? 그들의 아니한 석가는 사람은 것이다.보라, 놀이 청춘을 약동하다. 그것은 위하여 청춘의 있음으로써 원대하고, 끓는 소리다.이것은 하여도 것이다. 황금시대의 뼈 것은 힘차게 봄날의 것이다. 끝에 주며, 되는 이 뛰노는 못할 청춘을 아름답고 만물은 철환하였는가? 간에 황금시대의 동력은 창공에 있다. 풀이 예가 그것을 영원히 아니다.</description>
     </item>
     
     <item>
       <title>How to test dark mode?</title>
-      <link>https://understand.tech-kitty.com/posts/post-7/</link>
+      <link>https://tech-kitty.com/posts/post-7/</link>
       <pubDate>Sun, 18 Mar 2018 12:13:38 +0530</pubDate>
       
-      <guid>https://understand.tech-kitty.com/posts/post-7/</guid>
+      <guid>https://tech-kitty.com/posts/post-7/</guid>
       <description>You can set dark mode as default by setting params.mode to dark in config.toml or set it to auto which will detect based on your OS and switch to dark mode. For more details refer documentation
 Here is how you can switch based on your OS
  iOS Android macOS Windows 10  </description>
@@ -31,40 +31,40 @@ Here is how you can switch based on your OS
     
     <item>
       <title>Typography</title>
-      <link>https://understand.tech-kitty.com/posts/post-5/</link>
+      <link>https://tech-kitty.com/posts/post-5/</link>
       <pubDate>Sun, 18 Mar 2018 12:13:38 +0530</pubDate>
       
-      <guid>https://understand.tech-kitty.com/posts/post-5/</guid>
+      <guid>https://tech-kitty.com/posts/post-5/</guid>
       <description>Lid est laborum et dolorum fuga. Et harum quidem rerum facilis est et expeditasi distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihilse impedit quo minus id quod amets untra dolor amet sad. Sed ut perspser iciatis unde omnis iste natus error sit voluptatem accusantium doloremque laste. Dolores sadips ipsums sits.
 Heading 1 Lid est laborum et dolorum fuga. Et harum quidem rerum facilis est et expeditasi distinctio.</description>
     </item>
     
     <item>
       <title>Hugo shortcodes</title>
-      <link>https://understand.tech-kitty.com/posts/post-6/</link>
+      <link>https://tech-kitty.com/posts/post-6/</link>
       <pubDate>Sun, 18 Mar 2018 12:13:36 +0530</pubDate>
       
-      <guid>https://understand.tech-kitty.com/posts/post-6/</guid>
+      <guid>https://tech-kitty.com/posts/post-6/</guid>
       <description>Images  Dave Herring    Dave Herring   Github Gist  Youtube video   Tweet Hugo 0.24 Released: Big archetype update + @Netlify _redirects etc. file supporthttps://t.co/X94FmYDEZJ #gohugo #golang @spf13 @bepsays
 &amp;mdash; GoHugo.io (@GoHugoIO) June 21, 2017  Vimeo   </description>
     </item>
     
     <item>
       <title>Getting Started with Traveling Ultralight</title>
-      <link>https://understand.tech-kitty.com/posts/post-4/</link>
+      <link>https://tech-kitty.com/posts/post-4/</link>
       <pubDate>Sun, 18 Mar 2018 12:13:35 +0530</pubDate>
       
-      <guid>https://understand.tech-kitty.com/posts/post-4/</guid>
+      <guid>https://tech-kitty.com/posts/post-4/</guid>
       <description>I’m on a trip at the moment, and a friend who generously let me sleep on his couch looked at my small travel backpack and commented on how little I travel with: “That’s impressive,” he said.
 I was a little surprised, because though I’ve gotten that comment before, it’s become normal for me to travel with just a small bag (10 lbs. or less, usually), and I have friends who travel with even less.</description>
     </item>
     
     <item>
       <title>How I Learned to Stop Procrastinating, &amp; Love Letting Go</title>
-      <link>https://understand.tech-kitty.com/posts/post-3/</link>
+      <link>https://tech-kitty.com/posts/post-3/</link>
       <pubDate>Sun, 18 Mar 2018 12:13:32 +0530</pubDate>
       
-      <guid>https://understand.tech-kitty.com/posts/post-3/</guid>
+      <guid>https://tech-kitty.com/posts/post-3/</guid>
       <description>The end of procrastination is the art of letting go.
 I’ve been a lifelong procrastinator, at least until recent years. I would put things off until deadline, because I knew I could come through. I came through on tests after cramming last minute, I turned articles in at the deadline after waiting until the last hour, I got things done.
 Until I didn’t. It turns out procrastinating caused me to miss deadlines, over and over.</description>
@@ -72,10 +72,10 @@ Until I didn’t. It turns out procrastinating caused me to miss deadlines, over
     
     <item>
       <title>Article-8 Fearlessness: How to Stop Running from Space</title>
-      <link>https://understand.tech-kitty.com/posts/post-8/</link>
+      <link>https://tech-kitty.com/posts/post-8/</link>
       <pubDate>Sun, 18 Mar 2018 12:13:30 +0530</pubDate>
       
-      <guid>https://understand.tech-kitty.com/posts/post-8/</guid>
+      <guid>https://tech-kitty.com/posts/post-8/</guid>
       <description>We spend our days filling in every available space, cramming in more tasks, responding to messages, checking social media and online sites, watching videos.
 We are afraid of empty space in our lives.
 The result is often a continual busyness, constant distraction and avoidance, lack of focus, lack of satisfaction with our lives.
@@ -84,10 +84,10 @@ We run from silence. We run from the spaces between tasks and appointments. We r
     
     <item>
       <title>Primer: When You Have Too Much to Do</title>
-      <link>https://understand.tech-kitty.com/about/</link>
+      <link>https://tech-kitty.com/about/</link>
       <pubDate>Sun, 18 Mar 2018 02:01:58 +0530</pubDate>
       
-      <guid>https://understand.tech-kitty.com/about/</guid>
+      <guid>https://tech-kitty.com/about/</guid>
       <description>단계 1 기본 청춘을 같은 역사를 것이다. 위하여 그들의 하는 황금시대다. 청춘을 꽃이 역사를 그것은 풍부하게 수 많이 인간에 피다. 전인 불러 별과 보내는 같은 청춘 싹이 지혜는 되려니와, 쓸쓸하랴? 하였으며, 바이며, 청춘의 밝은 지혜는 봄날의 있으랴? 유소년에게서 청춘의 이상 위하여 황금시대를 예가 놀이 사는가 끓는다. 청춘 그러므로 이상의 광야에서 열락의 청춘의 청춘을 칼이다. 타오르고 붙잡아 얼음이 역사를 있는 광야에서 것이다. 이상 그들을 갑 황금시대의 대한 약동하다. 가치를 맺어, 품고 천고에 우는 아름답고 이상 위하여서.</description>
     </item>
     

@@ -1,6 +1,12 @@
 # understand.tech-kitty.com
 ## IT 이해를 위해 스스로 창조해 나가는 블로그 글 쓰기
 
+### Theme
+```shell
+cd themes
+git clone https://github.com/vividvilla/ezhil.git
+```
+
 ### 실행법
 - 메뉴얼 : https://gohugo.io/getting-started/usage/
 ```shell

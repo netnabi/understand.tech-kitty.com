@@ -1,11 +1,11 @@
 baseURL = 'https://tech-kitty.com/'
 languageCode = 'ko-KR'
-title = 'TECH-냥이'
+title = '테크;냥이'
 publishDir = 'docs'
 # Clean and minimal personal [blog theme for Hugo](https://github.com/vividvilla/ezhil)
 theme = "ezhil"
 
-copyright = "계속하면, 언젠가는 되는 날이 올거야."
+copyright = "수학을 알지 못하는 사람들은 자연의 아름다움, 궁극의 아름다움에 도달한 느낌은 갖기 힘들 것이다. 자연을 배우고 싶다면, 자연을 정말로 이해하고 싶다면, 자연이 말하고 있는 언어를 이해할 필요가 있다."
 
 [markup.goldmark.renderer]
 unsafe= true
@@ -30,8 +30,10 @@ paginate = 10
 summaryLength = 20
 
 [params]
+    copyright = "- Richard Phillips Feynman"
+
     # Blog subtitle which appears below blog title. Supports markdown.
-    subtitle = "개발, IT에 대한 소소한 이야기"
+    subtitle = "다시 이해하는 IT 개발 이야기"
 
     # Content types which are included in home page recent posts list.
     # mainSections = ["posts"]

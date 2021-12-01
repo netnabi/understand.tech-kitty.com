@@ -1,33 +1,90 @@
-@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
-
+/* ------------------------------------------------------------------------------------------------------------------ */
+/*
+ * Nanum Gothic (Korean) http://www.google.com/webfonts/earlyaccess
+ */
+@font-face {
+    font-family: 'Nanum Gothic';
+    font-style: normal;
+    font-weight: 700;
+    src: url('NanumGothic-Bold.woff') format('woff');
+}
+@font-face {
+    font-family: 'Nanum Gothic';
+    font-style: normal;
+    font-weight: 400;
+    src: url('NanumGothic-Regular.woff') format('woff');
+}
+@font-face {
+    font-family: 'Nanum Gothic';
+    font-style: normal;
+    font-weight: 800;
+    src: url('NanumGothic-ExtraBold.woff') format('woff');
+}
+/* ------------------------------------------------------------------------------------------------------------------ */
 @font-face {
     font-family: 'MaruBuri-Regular';
-    src: url('MaruBuri-Regular.woff') format('woff');
-    font-weight: normal;
+    src: url('MaruBuri-Bold.otf') format('opentype');
+    font-weight: 800;
     font-style: normal;
+    font-smooth: auto;
 }
-
+@font-face {
+    font-family: 'MaruBuri-Regular';
+    src: url('MaruBuri-SemiBold.otf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+    font-smooth: auto;
+}
+@font-face {
+    font-family: 'MaruBuri-Regular';
+    src: url('MaruBuri-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-smooth: auto;
+}
+@font-face {
+    font-family: 'MaruBuri-Regular';
+    src: url('MaruBuri-Light.otf') format('opentype');
+    font-weight: 200;
+    font-style: normal;
+    font-smooth: auto;
+}
+@font-face {
+    font-family: 'MaruBuri-Regular';
+    src: url('MaruBuri-ExtraLight.otf') format('opentype');
+    font-weight: 100;
+    font-style: normal;
+    font-smooth: auto;
+}
+/* ------------------------------------------------------------------------------------------------------------------ */
 :root {
-    /* --font-family-title: 'Nanum Gothic', sans-serif; */
-    --font-family-title: 'MaruBuri-Regular', sans-serif;
-    --font-family-article-header: 'MaruBuri-Regular', sans-serif;
-    
-    --font-family-body: 'MaruBuri-Regular', sans-serif;
+    --font-family-title: -apple-system,BlinkMacSystemFont,'MaruBuri-Regular',"Helvetica Neue","Apple SD Gothic Neo",Arial,sans-serif;
+    --font-family-article-header: -apple-system,BlinkMacSystemFont,'MaruBuri-Regular',"Helvetica Neue","Apple SD Gothic Neo",Arial,sans-serif;
+
+    --font-family-body: -apple-system,BlinkMacSystemFont,'MaruBuri-Regular',"Helvetica Neue","Apple SD Gothic Neo",Arial,sans-serif;
     --font-color-article-title-color: rgba(0, 0, 0, 0.43);
 
     --font-main-a-color: rgb(186, 63, 0);
     --pane-padding: 5px 42px;
+
+    --font-size-body: 1.36em;
 }
 
-
-
+@media only screen and (max-width: 600px) {
+    :root {
+        --font-size-body: 1.2em;
+    }
+}
 
 body {
     font-family: var(--font-family-body);
-    font-weight: 400;
-    color: #333;
+    font-weight: 100;
+    color: #111;
     line-height: 1.6;
-    font-size: 1em;
+    font-size: var(--font-size-body);
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: auto;
 }
 
 a,
@@ -225,11 +282,14 @@ ul {
 
 .highlight {
     background: 0 0;
-    background-color: #FAFAFA;
+    background-color: #262626;
 }
 
 pre code {
+    font-family: Consolas, serif;
+    font-size: 0.8em;
     display: inline-block;
+    font-weight: 100;
 }
 
 
@@ -377,7 +437,7 @@ pre code {
 }
 
 .footer {
-    text-align: right;
+    text-align: left;
     font-size: 0.75rem;
     color: #999;
     border-top: 1px dotted #AAA;
@@ -426,13 +486,14 @@ pre code {
 }
 
 table th {
-    background-color: #f4f4f4;
+    background-color: #ffd9ca;
+    font-weight: 200;
 }
 
 table th,
 table td {
-    padding: 10px 20px;
-    border: 1px solid #dddddd;
+    padding: 5px 10px;
+    border: 1px solid #6e6e6e;
 }
 
 @media (max-width: 767px) {

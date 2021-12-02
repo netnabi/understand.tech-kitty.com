@@ -22,6 +22,7 @@ $ hugo new testing.md
 
 ### Build static files
 ```
+# include Draft document option is "-D"
 $ hugo -D
 # then create new html file in /docs folder
 ```

@@ -21,6 +21,8 @@
 	
 	<script src="https://tech-kitty.com/js/main.js"></script>
 	<script src="https://tech-kitty.com/js/custom.js"></script>
+
+	<script src="https://tech-kitty.com/js/jquery-3.6.0.slim.min.js"></script>
 </head>
 
 
@@ -67,17 +69,9 @@
 		<ul class="posts"><li class="post">
 				<a href="/posts/article-00001/">Article-1 뭘 그리 배운게 없니?</a> <span class="meta">Mar 18, 2021</span>
 			</li><li class="post">
-				<a href="/posts/post-7/">How to test dark mode?</a> <span class="meta">Mar 18, 2018 <span class="draft-label">DRAFT</span> </span>
-			</li><li class="post">
 				<a href="/posts/post-5/">Typography</a> <span class="meta">Mar 18, 2018</span>
 			</li><li class="post">
 				<a href="/posts/post-6/">Hugo shortcodes</a> <span class="meta">Mar 18, 2018</span>
-			</li><li class="post">
-				<a href="/posts/post-4/">Getting Started with Traveling Ultralight</a> <span class="meta">Mar 18, 2018 <span class="draft-label">DRAFT</span> </span>
-			</li><li class="post">
-				<a href="/posts/post-3/">How I Learned to Stop Procrastinating, &amp; Love Letting Go</a> <span class="meta">Mar 18, 2018 <span class="draft-label">DRAFT</span> </span>
-			</li><li class="post">
-				<a href="/posts/post-8/">Article-8 Fearlessness: How to Stop Running from Space</a> <span class="meta">Mar 18, 2018 <span class="draft-label">DRAFT</span> </span>
 			</li></ul>
 	</div>
 
@@ -98,20 +92,30 @@
         data-width="100%" data-numposts="5"></div>
 
 <script type="text/javascript">
-	(function () {
-		
-		var loc = document.getElementById('fb-comments');
-		loc.setAttribute('data-href', location.href);
+    $(document).ready(function () {
+        var darkModeEnabled = false;
 
-		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-		
-		dsq.setAttribute('src', "https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v12.0");
-		dsq.setAttribute('nonce', "YGoGPMMr");
-		dsq.setAttribute('crossorigin', "anonymous");
-		dsq.setAttribute('data-lazy', "true");
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            console.log('mode-detect : ', 'dark');
+            darkModeEnabled = true;
+        }else{
+            console.log('mode-detect : ', 'white');
+            darkModeEnabled = false;
+        }
 
-		(document.getElementsByTagName('body')[0]).appendChild(dsq);
-	})();
+        var loc = document.getElementById('fb-comments');
+        loc.setAttribute('data-href', location.href);
+
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+
+        dsq.setAttribute('src', "https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v12.0");
+        dsq.setAttribute('nonce', "YGoGPMMr");
+        dsq.setAttribute('crossorigin', "anonymous");
+        dsq.setAttribute('data-lazy', "true");
+        dsq.setAttribute('data-colorscheme', darkModeEnabled ? "dark":"light");
+
+        (document.getElementsByTagName('body')[0]).appendChild(dsq);
+    });
 </script></div>
 
 

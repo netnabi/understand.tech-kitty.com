@@ -3,15 +3,17 @@
 		<div>{{ with .Site.Copyright }} {{ . }} {{ end }}</div>
 		<div>{{ with .Site.Params.Copyright }} {{ . }} {{ end }}</div>
 	</nav>
-	<!-- Start of WebFreeCounter Code -->
-	<a href="https://www.webfreecounter.com/" target="_blank" style="display: block;text-align: right;">
-		<img src="https://www.webfreecounter.com/hit.php?id=gvpaqkc&nd=6&style=1" border="0" alt="web counter" style="
-    display: inline-block;
-    margin: 0;
-    opacity: 0.5;
-	">
-	</a>
-	<!-- End of WebFreeCounter Code -->
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-3XQ94GTJBK"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-3XQ94GTJBK');
+	</script>
+
 	{{- $.Scratch.Set "isDisqus" true -}}
 
 	<!-- Disable if content type is excluded in config -->

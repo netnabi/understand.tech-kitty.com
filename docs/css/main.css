@@ -2,24 +2,24 @@
 /*
  * Nanum Gothic (Korean) http://www.google.com/webfonts/earlyaccess
  */
-@font-face {
-    font-family: 'Nanum Gothic';
-    font-style: normal;
-    font-weight: 700;
-    src: url('NanumGothic-Bold.woff') format('woff');
-}
-@font-face {
-    font-family: 'Nanum Gothic';
-    font-style: normal;
-    font-weight: 400;
-    src: url('NanumGothic-Regular.woff') format('woff');
-}
-@font-face {
-    font-family: 'Nanum Gothic';
-    font-style: normal;
-    font-weight: 800;
-    src: url('NanumGothic-ExtraBold.woff') format('woff');
-}
+/*@font-face {*/
+/*    font-family: 'Nanum Gothic';*/
+/*    font-style: normal;*/
+/*    font-weight: 700;*/
+/*    src: url('NanumGothic-Bold.woff') format('woff');*/
+/*}*/
+/*@font-face {*/
+/*    font-family: 'Nanum Gothic';*/
+/*    font-style: normal;*/
+/*    font-weight: 400;*/
+/*    src: url('NanumGothic-Regular.woff') format('woff');*/
+/*}*/
+/*@font-face {*/
+/*    font-family: 'Nanum Gothic';*/
+/*    font-style: normal;*/
+/*    font-weight: 800;*/
+/*    src: url('NanumGothic-ExtraBold.woff') format('woff');*/
+/*}*/
 /* ------------------------------------------------------------------------------------------------------------------ */
 @font-face {
     font-family: 'MaruBuri-Regular';
@@ -65,14 +65,16 @@
     --font-color-article-title-color: rgba(0, 0, 0, 0.43);
 
     --font-main-a-color: rgb(186, 63, 0);
-    --pane-padding: 5px 42px;
 
-    --font-size-body: 1.36em;
+    --pane-padding: 5px 42px;
 }
 
+:root {
+    --font-size-body: 1.13em;
+}
 @media only screen and (max-width: 600px) {
     :root {
-        --font-size-body: 1.2em;
+        --font-size-body: 1.0em;
     }
 }
 
@@ -85,13 +87,6 @@ body {
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: auto;
-}
-
-a,
-a:hover {
-    color: var(--font-main-a-color);
-    text-decoration: none;
-    word-break: break-word;
 }
 
 html,
@@ -165,14 +160,19 @@ blockquote em {
     font-weight: 600;
 }
 
-a,
-a:hover {
+a {
     color: var(--font-main-a-color);
-    text-decoration: none
+    word-break: break-word;
+    text-decoration: none;
 }
-
 a:hover {
-    text-decoration: underline
+    background-color: #eeeeee;
+}
+a:hover {
+    /*text-decoration: underline*/
+}
+a:visited {
+    color: rgb(255, 137, 70);
 }
 
 h1,
@@ -188,27 +188,27 @@ h6 {
 }
 
 h1 {
-    font-size: 2.75rem;
+    font-size: 2.3em;
 }
 
 h2 {
-    font-size: 2rem;
+    font-size: 2em;
 }
 
 h3 {
-    font-size: 1.6rem;
+    font-size: 1.6em;
 }
 
 h4 {
-    font-size: 1.2rem;
+    font-size: 1.2em;
 }
 
 h5 {
-    font-size: 1rem;
+    font-size: 1em;
 }
 
 h6 {
-    font-size: .9rem;
+    font-size: .9em;
 }
 
 .align-center {
@@ -486,14 +486,19 @@ pre code {
 }
 
 table th {
-    background-color: #ffd9ca;
+    background-color: #f3f3f3;
     font-weight: 200;
+}
+
+table th {
+    opacity: 0.6;
 }
 
 table th,
 table td {
+    font-size: 0.9em;
     padding: 5px 10px;
-    border: 1px solid #6e6e6e;
+    border: 1px solid  #cbcbcb;
 }
 
 @media (max-width: 767px) {

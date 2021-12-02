@@ -1,98 +1,12 @@
 /* ------------------------------------------------------------------------------------------------------------------ */
-/*
- * Nanum Gothic (Korean) http://www.google.com/webfonts/earlyaccess
- */
-@font-face {
-    font-family: 'Nanum Gothic';
-    font-style: normal;
-    font-weight: 700;
-    src: url('NanumGothic-Bold.woff') format('woff');
-}
-@font-face {
-    font-family: 'Nanum Gothic';
-    font-style: normal;
-    font-weight: 400;
-    src: url('NanumGothic-Regular.woff') format('woff');
-}
-@font-face {
-    font-family: 'Nanum Gothic';
-    font-style: normal;
-    font-weight: 800;
-    src: url('NanumGothic-ExtraBold.woff') format('woff');
-}
-/* ------------------------------------------------------------------------------------------------------------------ */
-@font-face {
-    font-family: 'MaruBuri-Regular';
-    src: url('MaruBuri-Bold.otf') format('opentype');
-    font-weight: 800;
-    font-style: normal;
-    font-smooth: auto;
-}
-@font-face {
-    font-family: 'MaruBuri-Regular';
-    src: url('MaruBuri-SemiBold.otf') format('opentype');
-    font-weight: 600;
-    font-style: normal;
-    font-smooth: auto;
-}
-@font-face {
-    font-family: 'MaruBuri-Regular';
-    src: url('MaruBuri-Regular.otf') format('opentype');
-    font-weight: 400;
-    font-style: normal;
-    font-smooth: auto;
-}
-@font-face {
-    font-family: 'MaruBuri-Regular';
-    src: url('MaruBuri-Light.otf') format('opentype');
-    font-weight: 200;
-    font-style: normal;
-    font-smooth: auto;
-}
-@font-face {
-    font-family: 'MaruBuri-Regular';
-    src: url('MaruBuri-ExtraLight.otf') format('opentype');
-    font-weight: 100;
-    font-style: normal;
-    font-smooth: auto;
-}
-/* ------------------------------------------------------------------------------------------------------------------ */
-
 :root {
-    --font-family-title: 'MaruBuri-Regular',"Helvetica Neue","Apple SD Gothic Neo",Arial,sans-serif;
-    --font-family-article-header: 'MaruBuri-Regular',"Helvetica Neue","Apple SD Gothic Neo",Arial,sans-serif;
-
-    --font-family-body: 'MaruBuri-Regular',"Helvetica Neue","Apple SD Gothic Neo",Arial,sans-serif;
     --font-color-article-title-color: rgba(255, 255, 255, 0.43);
-
-    --font-family-post-tags-a: -apple-system,BlinkMacSystemFont,'Nanum Gothic',"Helvetica Neue","Apple SD Gothic Neo",Arial,sans-serif;
-
     --font-main-a-color: rgb(255, 104, 24);
-    --pane-padding: 5px 42px;
-
-    --font-size-body: 1.36em;
-}
-
-@media only screen and (max-width: 600px) {
-    :root {
-        --font-size-body: 1.2em;
-    }
 }
 
 body {
-    font-family: var(--font-family-body);
-    font-weight: 100;
     color: #dddddd;
-    line-height: 1.6;
-    font-size: var(--font-size-body);
     background-color: #222222;
-}
-
-a,
-a:hover {
-    color: var(--font-main-a-color);
-    text-decoration: none;
-    word-break: break-word;
 }
 
 html,
@@ -148,32 +62,17 @@ textarea {
 }
 
 blockquote {
-    margin-left: 1rem;
-    font-style: italic;
-    font-size: 1.4rem;
-    font-family: var(--font-family-article-body);
-    border-left: 3px solid;
     border-color: #a00;
-    padding-left: 20px;
 }
 
-blockquote cite {
-    font-size: 70%;
-    opacity: .8;
-}
-
-blockquote em {
-    font-weight: 600;
-}
-
-a,
-a:hover {
+a {
     color: var(--font-main-a-color);
-    text-decoration: none
 }
-
 a:hover {
-    text-decoration: underline
+    background-color: #343434;
+}
+a:visited {
+    color: rgb(255, 137, 70);
 }
 
 h1,
@@ -182,103 +81,18 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: var(--font-family-title);
-    line-height: 1.2;
     color: #999;
-    font-weight: 200;
-}
-
-h1 {
-    font-size: 2.75rem;
-}
-
-h2 {
-    font-size: 2rem;
-}
-
-h3 {
-    font-size: 1.6rem;
-}
-
-h4 {
-    font-size: 1.2rem;
-}
-
-h5 {
-    font-size: 1rem;
-}
-
-h6 {
-    font-size: .9rem;
-}
-
-.align-center {
-    text-align: center;
-}
-
-.align-left {
-    text-align: left;
-}
-
-.align-right {
-    text-align: right;
-}
-
-.container {
-    max-width: 800px;
-}
-
-ul {
-    padding-left: 15px;
-}
-
-ul.flat {
-    margin: 0;
-    padding: 0;
-}
-
-ul.flat li {
-    display: inline-block;
-    list-style: none;
-    margin-left: 0;
-}
-
-.prevent-collapse {
-    min-height: .1rem
 }
 
 .page-title {
     color: var(--font-color-article-title-color);
-    margin: 0;
-}
-
-.smaller {
-    font-size: 70%;
-}
-
-ul {
-    list-style: disc inside;
 }
 
 .site-title a {
-    font-family: var(--font-family-title);
     color: #CCC;
-    text-decoration: none !important;
-}
-
-.post ul li {
-    margin-bottom: 10px;
-}
-
-.post ul li p {
-    display: inline;
 }
 
 .highlight pre {
-    margin-bottom: 0;
-    margin-top: 0;
-    padding: 20px;
-    background-color: transparent !important;
     border: 1px solid gray;
 }
 
@@ -287,241 +101,46 @@ ul {
     background-color: #262626;
 }
 
-pre code {
-    font-family: Consolas, serif;
-    font-size: 0.8em;
-    display: inline-block;
-    font-weight: 100;
-}
-
-
-.wrapper {
-    max-width: 760px;
-    margin: 0 auto;
-}
-
-.container {
-    margin-top: 50px;
-}
-
-.header {
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-}
-
-.header h1,
-.header h2 {
-    margin: 0;
-    padding: 0;
-    font-size: 2.0rem;
-    line-height: 1.8rem;
-}
-
-.header h2 {
-    font-size: 0.9rem;
-}
-
 .header nav {
-    margin-top: 20px;
     border-top: 1px dotted #AAA;
 }
 
-.header nav ul,
-.header nav li {
-    margin: 0;
-}
-
-.header nav ul.flat {
-    padding: 0;
-}
-
-.header nav ul.flat li {
-    display: inline-block;
-    list-style: none;
-    margin-left: 0;
-    margin-right: 10px;
-    margin-top: 10px;
-    text-transform: capitalize;
-}
-
-.header .site-description {
-    display: flex;
-    justify-content: space-between;
-}
-
-.header .site-description nav {
-    margin: 0;
-    padding: 0;
-    border: none;
-    min-width: 50px;
-    margin-left: 15px;
-}
-
-.header .site-description nav ul svg {
-    max-height: 15px;
-}
-
 .section .section-header {
-    font-size: 1.0rem;
     color: #999;
-    margin-bottom: 20px;
-    letter-spacing: 1px;
-
     border-bottom: #AAA 1px dotted;
-    padding-bottom: 0.2rem;
 }
 
 .recent-posts .posts .post {
-    margin-bottom: 1rem;
-
     background: #2a2a2a;
-    border-radius: 4px;
-
     box-shadow: rgb(0 0 0 / 4%) 0px 4px 10px 0px;
-    transition: box-shadow 0.25s ease-in 0s, transform 0.25s ease-in 0s;
-    padding: 1rem;
 }
 
 .recent-posts .posts .post .meta,
 .post .post-header .meta,
 .list .posts .post .meta {
-    font-size: 0.725rem;
     color: #999;
-    margin-bottom: 4px;
-}
-
-.post .post-header {
-    margin-bottom: 30px;
-}
-
-.post .post-header .title {
-    margin: 0;
-}
-
-.post-tags a {
-    margin-right: 5px;
-}
-
-.post .post-header .meta {
-    padding-left: 5px;
-    margin-top: 10px;
 }
 
 .post .draft-label {
     color: var(--font-main-a-color);
-    text-decoration: none;
-    padding: 2px 4px;
-    border-radius: 4px;
-    margin-left: 6px;
     background-color: #f9f2f4;
 }
 
-.post-tags .tags li {
-    margin-bottom: 0;
-    margin-top: 20px;
-}
-
 .post-tags .tags a {
-    /*font-family: var(--font-family-post-tags-a);*/
-    display: inline-block;
     border: 1px solid #444444;
-    border-radius: 4px;
-    padding: 2px 6px;
     color: var(--font-main-a-color);
-    line-height: 20px;
-    font-size: 1.0rem;
-    text-decoration: none;
-    margin: 0 1px;
-    /*background-color: darkslategray;*/
-}
-
-.list .posts .post .meta {
-    margin-bottom: 0;
-    margin-left: 5px;
 }
 
 .footer {
-    text-align: left;
-    font-size: 0.75rem;
     color: #999;
     border-top: 1px dotted #AAA;
-    padding: 20px 0;
-    margin-top: 40px;
-}
-
-.page-title {
-    margin-bottom: 0;
-}
-
-.tag-cloud {
-    margin-top: 20px;
-}
-
-.tag-cloud a {
-    margin-right: 15px;
-}
-
-.pagination {
-    margin: 0;
-    padding: 0;
-    text-align: left;
-    display: flex;
-    justify-content: space-between;
-}
-
-.pagination li {
-    list-style: none;
-    display: inline-block;
-    margin: 0;
-    padding: 0;
-}
-
-.pagination .page-prev {
-    margin-right: 20px;
-    padding-right: 20px;
-}
-
-.pagination .page-item.page-prev {
-    text-align: left;
-}
-
-.pagination .page-item.page-next {
-    text-align: right;
 }
 
 table th {
-    background-color: #340008;
-    font-weight: 200;
+    background-color: #414141;
 }
 
 table th,
 table td {
-    padding: 5px 10px;
-    border: 1px solid #5c5c5c;
-}
-
-@media (max-width: 767px) {
-    body {
-        padding: 20px;
-    }
-
-    h1 {
-        font-size: 1.8rem;
-    }
-
-    h2 {
-        font-size: 1.6rem;
-    }
-
-    h3 {
-        font-size: 1.2rem;
-    }
-
-    h4 {
-        font-size: 1rem;
-    }
-
-    .container {
-        margin-top: 10px;
-    }
+    border: 1px solid #777777;
 }

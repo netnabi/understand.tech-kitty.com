@@ -1,5 +1,5 @@
 baseURL = 'https://tech-kitty.com/'
-languageCode = 'ko-KR'
+languageCode = 'ko'
 title = '테크;냥이'
 publishDir = 'docs'
 # Clean and minimal personal [blog theme for Hugo](https://github.com/vividvilla/ezhil)

@@ -181,8 +181,15 @@ Heading 1 Lid est laborum et dolorum fuga. Et harum quidem rerum facilis est et 
     opacity: 0.5;
 	">
 	</a>
-	<div id="fb-comments" class="fb-comments" style="width:100%" data-href="https://understand.tech-kitty.com/#/"
-        data-width="100%" data-numposts="5"></div>
+	<div style="width:100%;background-color: #EEEEEE;margin-top: 20px;padding: 10px 0px;border-radius: 4px;">
+    
+    <div id="fb-comments" class="fb-comments"
+         data-href="https://understand.tech-kitty.com/#/"
+         data-width="100%"
+         data-numposts="10"
+         data-lazy="true"
+    ></div>
+</div>
 
 <script type="text/javascript">
     $(document).ready(function () {
@@ -198,14 +205,13 @@ Heading 1 Lid est laborum et dolorum fuga. Et harum quidem rerum facilis est et 
 
         var loc = document.getElementById('fb-comments');
         loc.setAttribute('data-href', location.href);
+        loc.setAttribute('data-colorscheme', darkModeEnabled ? "dark":"light");
 
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 
         dsq.setAttribute('src', "https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v12.0");
         dsq.setAttribute('nonce', "YGoGPMMr");
         dsq.setAttribute('crossorigin', "anonymous");
-        dsq.setAttribute('data-lazy', "true");
-        dsq.setAttribute('data-colorscheme', darkModeEnabled ? "dark":"light");
 
         (document.getElementsByTagName('body')[0]).appendChild(dsq);
     });

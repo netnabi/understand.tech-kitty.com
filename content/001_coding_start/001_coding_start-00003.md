@@ -213,7 +213,7 @@ NULL 이나 Undefined 라는 것이에요.
 결국에는 "타입"과 "변수(이름)" 2개의 항목이 필요하다는 것을 배웠습니다.
 그럼 소스코드에도 이 2가지를 작성해야 된다는 소리가 되는 것이죠.
 
-```go
+```r
 # 우리가 생각해 낸 것
 종류(타입) 물건의 이름 <- 배송물건을 찾아라("철수네 집 주소")
 
@@ -238,7 +238,6 @@ productName_cheolsu <- findToDeliveryProduct("Seoul of CheolSu")
 ---
 
 ###### 다음 주제로 이어지는 글
-
-- [예정] 기능=함수=메쏘드, Function=Method
+[함수/메소드 Function/Method](/001_coding_start/001_coding_start-00004)
 
 ---

@@ -229,17 +229,17 @@ NULL 이나 Undefined 라는 것이에요.</p>
 <h2 id="정리">정리</h2>
 <p>결국에는 &ldquo;타입&quot;과 &ldquo;변수(이름)&rdquo; 2개의 항목이 필요하다는 것을 배웠습니다.
 그럼 소스코드에도 이 2가지를 작성해야 된다는 소리가 되는 것이죠.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#a6e22e">우리가</span> <span style="color:#a6e22e">생각해</span> <span style="color:#a6e22e">낸</span> <span style="color:#a6e22e">것</span>
-<span style="color:#a6e22e">종류</span>(<span style="color:#a6e22e">타입</span>) <span style="color:#a6e22e">물건의</span> <span style="color:#a6e22e">이름</span> <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">배송물건을</span> <span style="color:#a6e22e">찾아라</span>(<span style="color:#e6db74">&#34;철수네 집 주소&#34;</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># 우리가 생각해 낸 것</span>
+종류(타입) 물건의 이름 <span style="color:#f92672">&lt;-</span> 배송물건을 찾아라(<span style="color:#e6db74">&#34;철수네 집 주소&#34;</span>)
 
-<span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#a6e22e">Javascript</span> (<span style="color:#a6e22e">변수라고는</span> <span style="color:#a6e22e">얘기하지만</span> <span style="color:#a6e22e">종류는</span> <span style="color:#a6e22e">뭐든지</span> <span style="color:#a6e22e">괜찮다고</span> <span style="color:#a6e22e">해요</span>)
-<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">productName_Cheolsu</span> = <span style="color:#a6e22e">findToDeliveryProduct</span>(<span style="color:#e6db74">&#34;Seoul of CheolSu&#34;</span>)
+<span style="color:#75715e"># Javascript (변수라고는 얘기하지만 종류는 뭐든지 괜찮다고 해요)</span>
+var productName_Cheolsu <span style="color:#f92672">=</span> <span style="color:#a6e22e">findToDeliveryProduct</span>(<span style="color:#e6db74">&#34;Seoul of CheolSu&#34;</span>)
 
-<span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#a6e22e">Java</span> (<span style="color:#a6e22e">변수인데</span> <span style="color:#a6e22e">종류도</span> <span style="color:#a6e22e">꼭</span> <span style="color:#a6e22e">써야</span> <span style="color:#a6e22e">된다고</span> <span style="color:#a6e22e">해요</span>)
-<span style="color:#a6e22e">Product</span> <span style="color:#a6e22e">productName_Cheolsu</span> = <span style="color:#a6e22e">findToDeliveryProduct</span>(<span style="color:#e6db74">&#34;Seoul of CheolSu&#34;</span>)
+<span style="color:#75715e"># Java (변수인데 종류도 꼭 써야 된다고 해요)</span>
+Product productName_Cheolsu <span style="color:#f92672">=</span> <span style="color:#a6e22e">findToDeliveryProduct</span>(<span style="color:#e6db74">&#34;Seoul of CheolSu&#34;</span>)
 
-<span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#a6e22e">Language</span> <span style="color:#a6e22e">R</span> (<span style="color:#a6e22e">어차피</span> <span style="color:#a6e22e">왼쪽에는</span> <span style="color:#a6e22e">변수만</span> <span style="color:#a6e22e">와요</span>. <span style="color:#a6e22e">그러니까</span> <span style="color:#a6e22e">이름만</span> <span style="color:#a6e22e">써요</span>)
-<span style="color:#a6e22e">productName_cheolsu</span> <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">findToDeliveryProduct</span>(<span style="color:#e6db74">&#34;Seoul of CheolSu&#34;</span>)
+<span style="color:#75715e"># Language R (어차피 왼쪽에는 변수만 와요. 그러니까 이름만 써요)</span>
+productName_cheolsu <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">findToDeliveryProduct</span>(<span style="color:#e6db74">&#34;Seoul of CheolSu&#34;</span>)
 </code></pre></div><p>자꾸 글이 길어집니다만,<br>
 지금 확실히 이해해야 앞으로 진행될 메쏘드/함수/클래스 이런것들을 
 쉽게 이해할 수 있습니다.</p>
@@ -247,9 +247,7 @@ NULL 이나 Undefined 라는 것이에요.</p>
 여러분들이 헤매왔던 이유는 지름길이 아니라 멀리 돌아가는 길이었음을 확신합니다.</p>
 <hr>
 <h6 id="다음-주제로-이어지는-글">다음 주제로 이어지는 글</h6>
-<ul>
-<li>[예정] 기능=함수=메쏘드, Function=Method</li>
-</ul>
+<p><a href="/001_coding_start/001_coding_start-00004">함수/메소드 Function/Method</a></p>
 <hr>
 
 		</div>

@@ -7,7 +7,88 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ko</language>
     <copyright>수학을 알지 못하는 사람들은 자연의 아름다움, 궁극의 아름다움에 도달한 느낌은 갖기 힘들 것이다. 자연을 배우고 싶다면, 자연을 정말로 이해하고 싶다면, 자연이 말하고 있는 언어를 이해할 필요가 있다.</copyright>
-    <lastBuildDate>Sun, 12 Dec 2021 11:15:32 +0900</lastBuildDate><atom:link href="https://tech-kitty.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 12 Dec 2021 11:16:32 +0900</lastBuildDate><atom:link href="https://tech-kitty.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Executor</title>
+      <link>https://tech-kitty.com/tags/executor/</link>
+      <pubDate>Sun, 12 Dec 2021 11:16:32 +0900</pubDate>
+      
+      <guid>https://tech-kitty.com/tags/executor/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Function</title>
+      <link>https://tech-kitty.com/tags/function/</link>
+      <pubDate>Sun, 12 Dec 2021 11:16:32 +0900</pubDate>
+      
+      <guid>https://tech-kitty.com/tags/function/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Method</title>
+      <link>https://tech-kitty.com/tags/method/</link>
+      <pubDate>Sun, 12 Dec 2021 11:16:32 +0900</pubDate>
+      
+      <guid>https://tech-kitty.com/tags/method/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Scope</title>
+      <link>https://tech-kitty.com/tags/scope/</link>
+      <pubDate>Sun, 12 Dec 2021 11:16:32 +0900</pubDate>
+      
+      <guid>https://tech-kitty.com/tags/scope/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Trigger</title>
+      <link>https://tech-kitty.com/tags/trigger/</link>
+      <pubDate>Sun, 12 Dec 2021 11:16:32 +0900</pubDate>
+      
+      <guid>https://tech-kitty.com/tags/trigger/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>메소드</title>
+      <link>https://tech-kitty.com/tags/%EB%A9%94%EC%86%8C%EB%93%9C/</link>
+      <pubDate>Sun, 12 Dec 2021 11:16:32 +0900</pubDate>
+      
+      <guid>https://tech-kitty.com/tags/%EB%A9%94%EC%86%8C%EB%93%9C/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>스코프</title>
+      <link>https://tech-kitty.com/tags/%EC%8A%A4%EC%BD%94%ED%94%84/</link>
+      <pubDate>Sun, 12 Dec 2021 11:16:32 +0900</pubDate>
+      
+      <guid>https://tech-kitty.com/tags/%EC%8A%A4%EC%BD%94%ED%94%84/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>함수</title>
+      <link>https://tech-kitty.com/tags/%ED%95%A8%EC%88%98/</link>
+      <pubDate>Sun, 12 Dec 2021 11:16:32 +0900</pubDate>
+      
+      <guid>https://tech-kitty.com/tags/%ED%95%A8%EC%88%98/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>호출자</title>
+      <link>https://tech-kitty.com/tags/%ED%98%B8%EC%B6%9C%EC%9E%90/</link>
+      <pubDate>Sun, 12 Dec 2021 11:16:32 +0900</pubDate>
+      
+      <guid>https://tech-kitty.com/tags/%ED%98%B8%EC%B6%9C%EC%9E%90/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>널(NULL)</title>
       <link>https://tech-kitty.com/tags/%EB%84%90null/</link>
@@ -23,15 +104,6 @@
       <pubDate>Sun, 12 Dec 2021 11:15:32 +0900</pubDate>
       
       <guid>https://tech-kitty.com/tags/%EB%B3%80%EC%88%98/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>함수</title>
-      <link>https://tech-kitty.com/tags/%ED%95%A8%EC%88%98/</link>
-      <pubDate>Sun, 12 Dec 2021 11:15:32 +0900</pubDate>
-      
-      <guid>https://tech-kitty.com/tags/%ED%95%A8%EC%88%98/</guid>
       <description></description>
     </item>
     

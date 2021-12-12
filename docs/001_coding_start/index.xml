@@ -9,6 +9,19 @@
     <copyright>수학을 알지 못하는 사람들은 자연의 아름다움, 궁극의 아름다움에 도달한 느낌은 갖기 힘들 것이다. 자연을 배우고 싶다면, 자연을 정말로 이해하고 싶다면, 자연이 말하고 있는 언어를 이해할 필요가 있다.</copyright>
     <lastBuildDate>Sat, 11 Dec 2021 12:13:32 +0900</lastBuildDate><atom:link href="https://tech-kitty.com/001_coding_start/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>함수/메소드 Function/Method</title>
+      <link>https://tech-kitty.com/001_coding_start/001_coding_start-00004/</link>
+      <pubDate>Sun, 12 Dec 2021 11:16:32 +0900</pubDate>
+      
+      <guid>https://tech-kitty.com/001_coding_start/001_coding_start-00004/</guid>
+      <description>이전에 알아야 읽어두어야 할 글 변수 Variable
+ 이 글을 읽기 위한 배경  앞서 설명한 변수의 이해 단순화(추상화) 하는 능력  얻게 되는 내용  함수의 이해와 사용   개요 앞서 배웠던 &amp;ldquo;계란후라이 요리 프로그램&amp;quot;을 다시 한번 꺼내 봅시다.
+아래와 같이 나타낼 수 있을 거 같아요.
+음식 계란후라이 = 요리프로그램(계란) 종류는 &amp;ldquo;음식&amp;rdquo; 이고 요리프로그램(기계)를 계란(재료)를 넣어서 실행해보니, 뭔가 음식 비스므리한게 나왔는데 그걸 &amp;ldquo;계란후라이&amp;quot;라고 이름으로 가리킵니다.
+이전에 만들어 놨던걸 더 작성하기 쉽게 간략화 시킵니다.</description>
+    </item>
+    
+    <item>
       <title>변수 Variable</title>
       <link>https://tech-kitty.com/001_coding_start/001_coding_start-00003/</link>
       <pubDate>Sun, 12 Dec 2021 11:15:32 +0900</pubDate>

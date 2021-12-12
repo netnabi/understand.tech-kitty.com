@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta property="fb:app_id" content="299152852116172" /><title>함수/메소드 Function/Method - 테크;냥이</title><link rel="icon" type="image/png" href=icons/favicon.png /><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="함수/메소드 Function/Method" />
+<meta property="og:description" content="함수의 정의, Definition of Function." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tech-kitty.com/001_coding_start/001_coding_start-00004/" /><meta property="article:section" content="001_coding_start" />
+<meta property="article:published_time" content="2021-12-12T11:16:32+09:00" />
+<meta property="article:modified_time" content="2021-12-12T11:16:32+09:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="함수/메소드 Function/Method"/>
+<meta name="twitter:description" content="함수의 정의, Definition of Function."/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://tech-kitty.com/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://tech-kitty.com/css/main.css" /><link rel="stylesheet" type="text/css" href="https://tech-kitty.com/css/dark.css" media="(prefers-color-scheme: dark)" />
+
+	
+	<script src="https://tech-kitty.com/js/main.js"></script>
+	<script src="https://tech-kitty.com/js/custom.js"></script>
+
+	<script src="https://tech-kitty.com/js/jquery-3.6.0.slim.min.js"></script>
+
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<base href="https://tech-kitty.com/">
+	<h1 class="site-title"><a href="https://tech-kitty.com/">테크;냥이</a></h1>
+	<div class="site-description"><h2>다시 이해하는 IT 개발 이야기</h2><nav class="nav social">
+			<ul class="flat"></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">최근 글</a>
+			</li>
+			
+			<li>
+				<a href="/001_coding_start">개발자 되기</a>
+			</li>
+			
+			<li>
+				<a href="/tags">태그</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">함수/메소드 Function/Method</h1>
+			<div class="meta">&mdash; Dec 12, 2021</div>
+		</div>
+
+		<div class="markdown">
+			<h6 id="이전에-알아야-읽어두어야-할-글">이전에 알아야 읽어두어야 할 글</h6>
+<p><a href="/001_coding_start/001_coding_start-00003">변수 Variable</a></p>
+<hr>
+<h3 id="이-글을-읽기-위한-배경">이 글을 읽기 위한 배경</h3>
+<ul>
+<li>앞서 설명한 변수의 이해</li>
+<li>단순화(추상화) 하는 능력</li>
+</ul>
+<h3 id="얻게-되는-내용">얻게 되는 내용</h3>
+<ul>
+<li>함수의 이해와 사용</li>
+</ul>
+<hr>
+<h3 id="개요">개요</h3>
+<p>앞서 배웠던 &ldquo;계란후라이 요리 프로그램&quot;을 다시 한번 꺼내 봅시다.<br>
+아래와 같이 나타낼 수 있을 거 같아요.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">음식 계란후라이 <span style="color:#f92672">=</span> 요리프로그램(계란)
+</code></pre></div><p>종류는 &ldquo;음식&rdquo; 이고 요리프로그램(기계)를 계란(재료)를 넣어서 실행해보니, 뭔가 음식 비스므리한게 나왔는데 그걸 &ldquo;계란후라이&quot;라고 이름으로 가리킵니다.</p>
+<p>이전에 만들어 놨던걸 더 작성하기 쉽게 간략화 시킵니다.
+빠른 설명을 위해 짧은 프로그램으로 변화 시켜 봅시다.</p>
+<hr>
+<h3 id="함수라는-형태의-탄생">함수라는 형태의 탄생</h3>
+<p><strong>[ 계란 후라이 요리 프로그램 : 짧은 버전 ]</strong></p>
+<p>    과정 - 1. 요리를 시작합니다.<br>
+    과정 - 2. 프라이팬을 가스렌지로 데웁니다.<br>
+    과정 - 3. 식용유를 프라이팬에 두릅니다.<br>
+    과정 - 4. 달걀을 깨서 프라이팬에 넣습니다.<br>
+    과정 - 5. 요리 완료.</p>
+<p>요리를 시작과 종료는 프로그램의 시작과 종료를 뜻 합니다. 간단한 기호로 바꿉시다.</p>
+<ul>
+<li>프로그램의 시작 : {</li>
+<li>프로그램의 종료 : }</li>
+</ul>
+<p>그리고 나머지 과정들을 바라보는 시야를 바꿔봅니다.<br>
+&ldquo;프라이팬을 가스렌지로 데우는&rdquo; 과정은 간단해 보이지만 이 또한 많은 세부 과정들을 내포합니다.</p>
+<p><strong>[ 세부과정 : 프라이팬을 가스렌지로 데우기 ]</strong></p>
+<p>    과정 - 1. { (세부과정의 시작)<br>
+    과정 - 2. 가스렌지를 켭니다<br>
+    과정 - 3. 가스렌지를 약으로 조정합니다.<br>
+    과정 - 4. } (세부과정의 종료)</p>
+<p>결국 이것도 작은 프로그램이고, 작은 프로그램들이 모여서 &ldquo;계란 후라이 프로그램&quot;을 완성하는 것이죠.
+이렇게 표현될 수 있습니다.</p>
+<p><strong>[ 계란후라이 소스코드 ]</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">{  
+    가스렌지로 데워라(프라이팬)  
+    프라이팬에 넣어라(식용유)  
+    프라이팬에 넣어라(달걀)  
+}  
+</code></pre></div><p>점점 간단해지는 거 같습니다.<br>
+아쉽게도 소스코드는 영어로 작성하셔야 합니다.</p>
+<p><strong>[ 계란후라이 소스코드 ]</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">{  
+    <span style="color:#a6e22e">boilByGas</span>(fri<span style="color:#f92672">-</span>pan)  
+    <span style="color:#a6e22e">putIntoFriPan</span>(oil)  
+    <span style="color:#a6e22e">putIntoFriPan</span>(egg)  
+}  
+</code></pre></div><p>소스코드는 강력한 변수의 기능이 있습니다. 필수요건이죠.<br>
+그렇다면 이 프로그램에도 이름을 지어서 가리킬 수 있을 거 같아요.</p>
+<p><strong>[ 계란후라이 소스코드 : 이름 짓기 : CookingFriEgg ]</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">Program CookingFriEgg <span style="color:#f92672">&lt;-</span> {  
+    <span style="color:#a6e22e">boilByGas</span>(fri<span style="color:#f92672">-</span>pan)  
+    <span style="color:#a6e22e">putIntoFriPan</span>(oil)  
+    <span style="color:#a6e22e">putIntoFriPan</span>(egg)  
+}
+</code></pre></div><p>여기서 프로그램(Program) 은 과정들의 묶음이고 각 과정도 어찌보면 미니 프로그램이라고 볼 수 있습니다. 즉 과정 = 프로그램 = 미니 프로그램 은 하나의 프로그램 종류(type) 이군요.</p>
+<p>이걸 우리는 이제 함수(Function) 또는 메쏘드(Method)라 부르기로 합니다.</p>
+<blockquote>
+<p>Method</p>
+<ol>
+<li>[명사] 방법 (→direct method)</li>
+<li>[명사] 체계성</li>
+</ol>
+</blockquote>
+<p>[출처: <a href="https://dict.naver.com/search.dict?dicQuery=%EB%A9%94%EC%86%8C%EB%93%9C&amp;query=%EB%A9%94%EC%86%8C%EB%93%9C&amp;target=dic&amp;ie=utf8&amp;query_utf=&amp;isOnlyViewEE=">메소드; 네이버사전</a>]</p>
+<blockquote>
+<p>Function</p>
+<ol>
+<li>[명사] (사람사물의) 기능</li>
+<li>[명사] 행사, 의식</li>
+<li>[동사] (제대로) 기능하다[작용하다] (=operate)</li>
+</ol>
+</blockquote>
+<p>[출처: <a href="https://dict.naver.com/search.dict?dicQuery=function&amp;query=function&amp;target=dic&amp;ie=utf8&amp;query_utf=&amp;isOnlyViewEE=">function; 네이버사전</a>]</p>
+<p>바꿔봅시다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">function CookingFriEgg <span style="color:#f92672">&lt;-</span> {  
+    <span style="color:#a6e22e">boilByGas</span>(fri<span style="color:#f92672">-</span>pan)
+    <span style="color:#66d9ef">...</span>
+}
+</code></pre></div><p>어차피 저 function 의 시작({ 표시)과 끝(} 표시)는 CookingFriEgg 의 이름과 동일시 되는 것처럼 보입니다. 그냥 합쳐주면 어떨까요?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">function CookingFriEgg {  
+    <span style="color:#a6e22e">boilByGas</span>(fri<span style="color:#f92672">-</span>pan)
+    <span style="color:#66d9ef">...</span>
+}
+</code></pre></div><p>흠.. 여기서 우리가 빠진게 있습니다.<br>
+처음 요리 프로그램의 요소 중 &ldquo;준비물&rdquo; 이 빠져 있네요.<br>
+그리고 준비물의 자리는 맨 끝이었습니다. 그러니까 끝에 넣어봅시다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># 준비물이 빠져있다 괄호 &#34;(~)&#34; 를 넣자.</span>
+음식 계란후라이 <span style="color:#f92672">=</span> 요리프로그램(계란)
+
+<span style="color:#75715e"># 준비물이 들어간 함수의 형태</span>
+function CookingFriEgg {  
+    <span style="color:#a6e22e">boilByGas</span>(fri<span style="color:#f92672">-</span>pan)
+    <span style="color:#66d9ef">...</span>
+}(egg)
+</code></pre></div><p>아 뭔가 아쉽습니다. 함수의 작업이 많아져서 줄(세부작업..등)이 길어지면,
+준비물이 안 보일 거 같습니다. 그리고 준비물이란건 프로그램(함수)을 시작하기 전에 준비되어야 하니까 느낌상 앞에 있어야 할거 같아요. 또 원래 함수이름 뒤에 있었으니 뒤쪽에 넣으면 예쁠거 같습니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># 준비물이 들어간 함수의 형태, 예쁘게</span>
+function <span style="color:#a6e22e">CookingFriEgg </span>(egg) {  
+    <span style="color:#a6e22e">boilByGas</span>(fri<span style="color:#f92672">-</span>pan)
+    <span style="color:#66d9ef">...</span>
+}
+</code></pre></div><p>이 정도면 매우 훌륭해 보입니다. ^^<br>
+준비물도 결국에는 변수입니다. 이름을 지은 것 뿐이죠.<br>
+그리고 이름은 우리 마음대로 지을 수 있으니, 새로운 이름도 지을 수 있습니다.<br>
+거기에 어떤 종류인지도 궁금합니다. 종류도 넣어보죠</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># 준비물도 결국에는 우리 마음대로 이름을 지을 수 있어요.</span>
+function <span style="color:#a6e22e">CookingFriEgg </span>(달걀 prettyEgg ) {  
+    <span style="color:#a6e22e">boilByGas</span>(fri<span style="color:#f92672">-</span>pan)
+    <span style="color:#66d9ef">...</span>
+}
+</code></pre></div><p>이제 그럴듯한 완성을 해봅시다. 빠진 준비물도 있었구요.<br>
+혼란스러울까봐 한글로 먼저 다 적어봅시다.<br>
+몇가지 좀 수정하구요.</p>
+<p><strong>[ 계란후라이 소스코드 : 완성 ]</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># 한글판 </span>
+함수 계란후라이요리 (식재료 날달걀, 요리도구 프라이팬, 식재료 식용유){  
+    가스랜지로 데워라(프라이팬)  
+    프라이팬에 넣어라(식용유)  
+    프라이팬에 넣어라(날달걀)  
+}
+<span style="color:#75715e"># 영문판 </span>
+function <span style="color:#a6e22e">CookingFriEgg </span>( Material pureEgg, CookingTool friPan, Material oil ){
+    <span style="color:#a6e22e">boilByGas</span>(friPan)  
+    <span style="color:#a6e22e">putIntoFriPan</span>(oil)  
+    <span style="color:#a6e22e">putIntoFriPan</span>(pureEgg)  
+}
+</code></pre></div><p>우와, 이렇게 결국에는 우리가 흔히 보는 프로그래밍 언어의 함수의 모습입니다.<br>
+물론 완벽하지는 않지만요.</p>
+<p>계란후라이프로그램(이하 : 후라이함수)은 여러 세부 과정들로 이루어져 있고<br>
+세부 과정도 하나의 과정이니까 함수라고 부를 수 있습니다.
+그럼 세부 과정이 어떻게 되는지 알려줘야 우리 파더기(컴퓨터, 갑작스런 등장!)가 알아듣지 않을까요?<br>
+알아서 하는 법이 없으니까요.</p>
+<p>후라이 요리하는 법은 알겠는데, 세부과정 boilByGas&lt;가스렌지로 데워라&gt;는 어떻게 하는지 모를테니까요.</p>
+<p><strong>[ 계란후라이 소스코드 : 세부과정도 얘기해줘 ]</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># 후라이 함수</span>
+function <span style="color:#a6e22e">CookingFriEgg </span>( Material pureEgg, CookingTool friPan, Material oil ){
+    <span style="color:#a6e22e">boilByGas</span>(friPan)  
+    <span style="color:#a6e22e">putIntoFriPan</span>(oil)  
+    <span style="color:#a6e22e">putIntoFriPan</span>(pureEgg)  
+}
+
+<span style="color:#75715e"># 세부과정 boilByGas &lt;가스렌지로 데워라&gt;</span>
+function <span style="color:#a6e22e">boilByGas </span>( CookingTool myFriPan ){
+    <span style="color:#a6e22e">turnOnGas</span>(); <span style="color:#75715e"># 준비물이 없다고 하죠, 아 귀찮네요.</span>
+    <span style="color:#a6e22e">tuneGas</span>(<span style="color:#e6db74">&#34;weak&#34;</span>); <span style="color:#75715e"># 강,중,약 중 약 으로 합시다.</span>
+}
+
+<span style="color:#75715e"># 세부과정 putIntoFriPan &lt;프라이팬에 넣어라&gt;</span>
+function <span style="color:#a6e22e">putIntoFriPan </span>( Material something ){
+    <span style="color:#a6e22e">pureIntoPan</span>(something); <span style="color:#75715e"># 그 정체모를 식재료를 프라이팬에 붓습니다.</span>
+}
+</code></pre></div><p>재료들의 이름이 계속 달라지는게 보이나요?<br>
+왜 그럴까요? 각 함수(과정)에서는 정해진대로 자기 할일만 하면 됩니다.<br>
+준비물이 A,B,C,&hellip; 가 들어오면 그걸 가지고 정해진 수순대로 진행하기만 하면 되죠.<br>
+그 내용물(어떠한 존재?)이 뭔지는 &ldquo;아 모르겠고~&rdquo; 그걸 가지고 &ldquo;어떻게 해&quot;라는 것만 적혀 있으니 자연스러운 거라고도 볼 수 있습니다.</p>
+<p>어렵나요? 다시 한번 설명해보죠.</p>
+<ol>
+<li>
+<p>function CookingFriEgg( &hellip;, Material pureEgg ) : 이 프로그램 바깥에서 준비물이 왔습니다. 그걸 우리는 pureEgg 라고 부르기로 했어요. 그리고 그걸 가지고 무엇을 하든 함수 내부에서 정해진대로 움직이기만 하면 됩니다.</p>
+</li>
+<li>
+<p>putIntoFriPan(pureEgg) : 우리가 pureEgg 라고 이름지은 존재를 putIntoFriPan 함수에다가 집어넣어 버립니다. 안에서 어떻게 할지는 잘 모르겠지만, 이름으로 봐서는 프라이팬에다가 집어넣을 거 같아요.</p>
+</li>
+<li>
+<p>function putIntoFriPan( Material something ) : 이 프로그램 바깥에서 뭔가 준비물이 왔는데요. 우리는 매우 귀찮으니 &ldquo;무엇&rdquo; 이라고 이름을 짓습니다. 이 &lsquo;무엇&rsquo;을 가지고 어떻게 하든 내부에 정해진대로만 할거에요. 하필이면 이때는 &ldquo;무엇&quot;이 &ldquo;바깥에서는 pureEgg&rdquo; 라고 불렀을 뿐이에요. 하지만 바깥 사정까지 신경쓰고 싶지 않아요.</p>
+</li>
+</ol>
+<p>이 정도면 함수의 형태를 만들어봤고 아주 조금은 감이 오기 시작할거에요.<br>
+하지만 우리는 &ldquo;계란 후라이&quot;를 만들지는 못했어요.<br>
+왜냐구요? 계획만 세웠으니까요. (새해 계획은 세웠으나 실행해본 적은 없는 것처럼요.)</p>
+<hr>
+<h3 id="함수의-실행-execute-call">함수의 실행 (Execute, Call)</h3>
+<p>여기서 우리는 &ldquo;계란 후라이&quot;를 실제로 얻기 위해 이 함수를 작동시켜야 합니다.<br>
+이것을 우리는 함수를 &ldquo;실행(Execute)&rdquo; 한다 또는 호출(Call) 한다라고 합니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">
+<span style="color:#75715e"># 후라이 함수 &lt; 하지만 이건 계획일 뿐 &gt;</span>
+function <span style="color:#a6e22e">CookingFriEgg </span>( Material pureEgg, CookingTool friPan, Material oil ){
+    ....
+}
+
+<span style="color:#75715e"># 함수를 실행해서 &#34;후라이&#34;를 얻자. 이름이 없는 프로그램의 시작이다.</span>
+call {
+    <span style="color:#75715e"># 마켓에서 &#34;egg&#34;라고 글자가 적혀 있는걸 사옵니다. 그걸 &#34;pEgg&#34; 라고 이름으로 가리킵니다.</span>
+    Material pEgg <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">buyFromMarket</span>(<span style="color:#e6db74">&#34;egg&#34;</span>)  
+    <span style="color:#75715e"># 친구한테 &#34;테팔&#34;이라고 글자가 프라이팬을 뺏어옵니다. 그걸 &#34;fPan&#34; 이름으로 합시다.</span>
+    CookingTool fPan <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">getFromFriend</span>(<span style="color:#e6db74">&#34;테팔&#34;</span>)
+    <span style="color:#75715e"># 창고에서 &#34;식용유&#34;라고 적혀있는거 가져와서 &#34;oil&#34; 이라고 이름을 지읍시다.  </span>
+    Material oil <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">getFromStorage</span>(<span style="color:#e6db74">&#34;식용유&#34;</span>) 
+
+    <span style="color:#75715e"># 우리가 작성해 놓은 계획(함수)에 준비물을 넣어서 실행(또는 호출) 합니다.</span>
+    <span style="color:#75715e"># 그럼 실행하고 나면, &#34;계란 후라이&#34;를 얻게 되는데 그걸 우리는 &#34;friedEgg&#34; 라고 부르기로 합시다.</span>
+    Food friedEgg <span style="color:#f92672">&lt;-</span> call <span style="color:#a6e22e">CookingFriEgg</span>( pEgg, fPan, oil )
+}
+</code></pre></div><p>&ldquo;call {&rdquo; 프로그램의 시작이 눈에 띕니다.<br>
+계획은 세웠지만 언제 실행할지 모르잖아요. 그럼 이 &ldquo;계란 후라이 함수를 실행하라&quot;라는 계획은 도대체 언제 &ldquo;실행&rdquo; 하는 걸까요?
+결국 이 계획을 &ldquo;이 부분에서 지금 당장해&rdquo; 라는 것도 필요합니다. 그걸 표현하기 위해 call (이름이 없어 하지만 이것도 계획){ &hellip; } 를 호출해 버린 겁니다.</p>
+<p>그래야 &ldquo;게란 후라이&quot;를 얻으낼 수 있죠.
+그 언젠가는 계획(함수)를 실행해야만 결과를 얻는다는 뜻입니다.</p>
+<p>아 글자가 너무 많아 귀찮아졌어요. 줄일 수 있으면 좋겠습니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">
+<span style="color:#75715e"># 후라이 함수 &lt; 하지만 이건 계획일 뿐 &gt;</span>
+function <span style="color:#a6e22e">CookingFriEgg </span>( Material pureEgg, CookingTool friPan, Material oil ){
+    ....
+}
+
+<span style="color:#75715e"># call 하고 {, } 이 없어져도 되지 않을까요? </span>
+<span style="color:#75715e"># 어차피 시작(앞의 함수와 구분이 되니)과 끝(이 계획을 작성한 종이의 끝)이 보이는데 말이지요.</span>
+
+....
+<span style="color:#75715e"># 이걸 줄이면...</span>
+Food friedEgg <span style="color:#f92672">&lt;-</span> call <span style="color:#a6e22e">CookingFriEgg</span>( pEgg, fPan, oil )
+<span style="color:#75715e"># 좀 더 간단하게...</span>
+Food friedEgg <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">CookingFriEgg</span>( pEgg, fPan, oil )
+
+<span style="color:#75715e"># 이 계획(문서, 종이)의 끝 부분, 더 이상 작성할 공간이 없다.</span>
+</code></pre></div><p>실행이나 호출은 함수의 이름만 언급하고, 준비물만 넣어주면 땡. 이라고 생각할 수 있고,<br>
+다른 함수들은 { 로 시작해서 } 끝나도록 다 작성해 놨으니,<br>
+어디서부터 어디까지가 &ldquo;계획(함수)&ldquo;고 어디서 부터가 &ldquo;함수&quot;가 아닌 곳을 구분이 됩니다.<br>
+그러니 다른 함수의 영역만 간섭하지 않는다면 &ldquo;실행&quot;의 영역이라 봐도 좋은 것입니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">
+function 초록색공<span style="color:#a6e22e">_함수</span>(){ <span style="color:#75715e"># 초록색공_함수의 시작</span>
+    <span style="color:#75715e"># 이 함수는 초록색 공을 만들어 줄 것이다.</span>
+    <span style="color:#66d9ef">...</span>
+} <span style="color:#75715e"># 초록색공_함수의 끝</span>
+
+<span style="color:#75715e"># 실행의 영역 : 여기부터 ----------------------------</span>
+<span style="color:#75715e"># function 으로 시작하지 않으니 함수는 아니다. 구분 가능.</span>
+
+<span style="color:#75715e"># 초록색공_함수 실행 전.</span>
+Ball greenBall <span style="color:#f92672">&lt;-</span> 초록색공<span style="color:#a6e22e">_함수</span>()
+<span style="color:#75715e"># 초록색공_함수 실행 후. 무언가를 얻었고 그걸 우린 &#34;greenBall&#34; 이라고 이름짓자.</span>
+
+<span style="color:#75715e"># 이 쯤에는 ----------------------------</span>
+<span style="color:#75715e"># &#34;greenBall&#34; 만 얻은 상태다, &#34;muJiGae&#34; 라는 이름이 아래에 보이지만 </span>
+<span style="color:#75715e"># 우리는 &#34;위&#34;에서&#34;아래&#34;로 진행하니 아직 이 아래쪽의 일은 &#34;모른다&#34;</span>
+
+<span style="color:#75715e"># 실행의 영역 : 여기까지 ----------------------------</span>
+
+<span style="color:#75715e"># 다시 function 단어가 보이니 함수의 영역이 시작되었다.</span>
+function 무지개<span style="color:#a6e22e">_함수</span>(){ <span style="color:#75715e"># 무지개_함수의 시작</span>
+    <span style="color:#75715e"># 무지개 생산.</span>
+} <span style="color:#75715e"># 무지개_함수의 끝</span>
+
+<span style="color:#75715e"># 무지개_함수 실행 전.</span>
+Light muJiGae <span style="color:#f92672">&lt;-</span> 무지개<span style="color:#a6e22e">_함수</span>()
+<span style="color:#75715e"># 무지개_함수 실행 후. 무언가를 얻었고 그걸 우린 &#34;muJiGae&#34; 이라고 이름짓자.</span>
+
+<span style="color:#75715e"># 이 쯤에는 ----------------------------</span>
+<span style="color:#75715e"># &#34;greenBall&#34; 과 &#34;muJiGae&#34; 를 얻은 상태다!</span>
+
+</code></pre></div><p>그럼 이런 경우는 어떻게 될까요?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">
+function 초록색공<span style="color:#a6e22e">_함수</span>(){ <span style="color:#66d9ef">...</span> }
+
+Ball greenBall <span style="color:#f92672">&lt;-</span> 초록색공<span style="color:#a6e22e">_함수</span>()
+Light muJiGae <span style="color:#f92672">&lt;-</span> 무지개<span style="color:#a6e22e">_함수</span>() <span style="color:#75715e"># 이래도 될까요?</span>
+
+function 무지개<span style="color:#a6e22e">_함수</span>(){ <span style="color:#66d9ef">...</span> }
+</code></pre></div><p>우리 파더기(컴퓨터)는 단순합니다. <u>위에서 아래</u>로 밖에 읽지 못하고, <u>읽은 것만 기억</u>할 수 있어요.<br>
+&ldquo;무지개_함수&rdquo; 가 알려주지 못한 상태에서 호출을 시도한다면 <u>알지 못하거나 처음 본</u> 함수이기 때문에 &ldquo;아 몰라.&rdquo; 라고 말하면서 하던 일을 중단할 수 밖에 없어요.</p>
+<hr>
+<h4 id="중간-정리">중간 정리</h4>
+<p>프로그램은 결국 함수나 메쏘드로 부를 수도 있고, 세부 작업도 결국 함수라고 부를 수 있습니다.<br>
+그리고 함수를 작성한다는 건 &ldquo;계획&quot;을 만든 것이고 이 &ldquo;계획&quot;을 실행하는 것 또한 그 함수를 작성하고 나서야 가능하다는 것입니다.</p>
+<p><strong>[ 가능한 시나리오 1 ]</strong></p>
+<ol>
+<li>A 라는 계획을 만듬.</li>
+<li>B 라는 계획을 만듬.</li>
+<li>A 라는 계획을 실행 또는 호출해.</li>
+<li>B 라는 계획을 실행 또는 호출해.</li>
+</ol>
+<p><strong>[ 가능한 시나리오 2 ]</strong></p>
+<ol>
+<li>A 라는 계획을 만듬.</li>
+<li>A 라는 계획을 실행 또는 호출해.</li>
+<li>B 라는 계획을 만듬.</li>
+<li>B 라는 계획을 실행 또는 호출해.</li>
+</ol>
+<p><strong>[ 불가능한 시나리오 : 계획을 실행하다가 중단된다 ]</strong></p>
+<ol>
+<li>A 라는 계획을 만듬.</li>
+<li>B 라는 계획을 실행 또는 호출해. &lt; <u>B 계획은 아직 본적이 없는걸?</u> &gt;, <strong>아 몰라 중단!!</strong></li>
+<li>B 라는 계획을 만듬.</li>
+<li>A 라는 계획을 실행 또는 호출해. &lt; A 계획은 위(1번)에 있었으니까 할 수 있어. &gt;</li>
+</ol>
+<p>여기서 우리는 의문을 또 하나 가지게 됩니다.<br>
+그럼 이 &ldquo;최종&rdquo; 계획은 누가, 언제 하는 거지? 라는 의문입니다.</p>
+<hr>
+<h4 id="스코프-scope">스코프; Scope</h4>
+<p>여담으로 스코프라는 단어를 볼때가 있는데, 아직은(?) 별게 아닙니다.<br>
+&ldquo;시작과 끝&quot;이라는 이 긴 단어를 간결하게 표현하고 싶을 때 이 단어를 쓰게 됩니다.<br>
+함수의 스코프는 function 함수이름(){ &lt;&ndash; 여기부터 &hellip; 여기까지 &ndash;&gt; } 가 되겠죠.
+나중에 이에 관해 이야기를 할 때가 올 것입니다.</p>
+<blockquote>
+<p>Scope</p>
+<ol>
+<li>[명사] [U] (지력·연구·활동 등의) 범위, 영역; (정신적) 시야</li>
+<li>[명사] 여지(space), 기회, 배출구 ((for))</li>
+<li>[명사] (공간의) 넓이, 길이; 지역, 지구</li>
+</ol>
+</blockquote>
+<p>[출처: <a href="https://dict.naver.com/search.dict?dicQuery=scope&amp;query=scope&amp;target=dic&amp;ie=utf8&amp;query_utf=&amp;isOnlyViewEE=">Scope; 네이버사전</a>]</p>
+<hr>
+<h4 id="함수의-중단-종료-return">함수의 중단? 종료; return</h4>
+<p>함수란건 결국 뭔가를 순차적으로 실행하는 역할을 합니다.<br>
+그럼 중간에 하기 싫거나 하지 말아야 할 경우가 있을 겁니다.<br>
+예를 들어,<br>
+계란 후라이 요리를 하는 중에 프라이팬까지 다 데웠습니다.</p>
+<p>&ldquo;아 이런&hellip; 계란이 상했습니다.&rdquo;</p>
+<p>그럼 여러분은 요리를 계속 해야 할까요? 아니면 중단해야 할까요?
+계획을 진행하다 중단한다는 의미는<br>
+<u>중단하는 과정 이후의 다음 과정들은 진행하지 않는다!</u> 라는 걸 의미할 겁니다.</p>
+<p>즉 특정 상황(조건)이 된다면, 계획을 중단해! 라는 <b>&ldquo;중단 계획&rdquo;</b>도 세워야 한다는 거죠.
+그 문장은 각 언어마다 여러가지로 쓰일 수 있습니다.</p>
+<ul>
+<li>Return</li>
+<li>Exit</li>
+<li>Stop</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">function <span style="color:#a6e22e">CookingFriEgg </span>( Material pureEgg, CookingTool friPan, Material oil ){
+    <span style="color:#a6e22e">boilByGas</span>(friPan)  
+    <span style="color:#a6e22e">putIntoFriPan</span>(oil)  
+    <span style="color:#75715e"># 이 쯤에서 계란을 넣기전에 확인을 해 볼겁니다.</span>
+    <span style="color:#a6e22e">if</span>( pureEgg 가 상했니<span style="color:#f92672">?</span> ){
+        <span style="color:#75715e"># 응 상했다면 이 영역(스코프) if {...} 을 진행시킵니다.</span>
+        <span style="color:#75715e"># 상하지 않았다면 이 영역은 무시하고 실행하지 않습니다.</span>
+        return; <span style="color:#75715e"># 이 함수는 더 이상 실행하면 안돼. 이 밑에 계획있던건 하지 마!</span>
+    }
+    <span style="color:#a6e22e">putIntoFriPan</span>(pureEgg)  <span style="color:#75715e"># 계란이 상했는지 윗줄에서 판단 후에 상했다면 이 계획은 무시.</span>
+    <span style="color:#a6e22e">waitUntil</span>()             <span style="color:#75715e"># 계란이 상했는지 윗줄에서 판단 후에 상했다면 이 계획은 무시.</span>
+    <span style="color:#66d9ef">...</span> <span style="color:#75715e"># 이 아래로 주~욱 전부 무시.</span>
+}
+</code></pre></div><hr>
+<h4 id="호출자-executor-의-존재">호출자; Executor 의 존재</h4>
+<p>우리는 프로그래머로서 열심히 계획을 다 작성했어요.<br>
+근데 풀리지 않는 의문은 도대체 이 장대하고 거대한 &ldquo;계란 후라이 요리&rdquo; 함수는 누가 실행해주는 걸까요?</p>
+<p>프로그래머가 실행할까요? 그럴거면 계획 작성하지 말고 직접 해먹으면 되겠지요.<br>
+그저 우리는 계획을 만들었으니 그 <b>누군가</b>가 계란후라이를 가져다주길 기다려야 하는 것입니다.
+언제요? 우리가 원하는 시점에요.</p>
+<p><strong>[프로그램을 실행하는데 필요한 조건]</strong></p>
+<ol>
+<li>프로그래머가 작성한 소스코드 (계획)</li>
+<li>계획을 실행시켜줘야 할 그 무엇 (호출자, Executor)</li>
+<li>호출자에게 명령을 내리는 때(시점, 계획 진행시켜)</li>
+</ol>
+<p><img src="/images/001_coding_start/001_coding_start-000004/executor.jpeg" alt="호출을 명령"></p>
+<h6 id="호출자에게-명령을-계획이-나이스-하군-진행시켜">[호출자에게 명령을] 계획이 나이스 하군. 진행시켜.</h6>
+<blockquote>
+<p>Executor</p>
+<ol>
+<li>[명사][전문 용어] 유언 집행자</li>
+</ol>
+</blockquote>
+<p>[출처: <a href="https://dict.naver.com/search.dict?dicQuery=Executor&amp;query=Executor&amp;target=dic&amp;ie=utf8&amp;query_utf=&amp;isOnlyViewEE=">Executor; 네이버사전</a>]</p>
+<p>말 그대로 호출자(Caller) 또는 실행자 (Executor)는 어떤 명령이나 계획을 집행하는 사람이라는 뜻이에요.<br>
+그러니까 프로그래머가 직접 실행하는게 아니라는 말씀.</p>
+<p>프로그래머는 실행자에게 &ldquo;나의 장대한 계획&quot;을 진행시켜라 라고 명령을 내리는 존재입니다.<br>
+언제요? 계란 후라이 먹고 싶을 때요.</p>
+<p>Executor 는 컴퓨터 세계에 존재하고, 그는 우리가 시킬때까지 &ldquo;대기&quot;하고 있다고만 생각하면 됩니다. 그리고 프로그래머는 그 Executor 에게 소스코드를 전달하면서 이걸 진행시켜 라고 얘기하고 나서 그 함수(계획)가 완료될때가지 기다리고 나면, 우리는 결과(&ldquo;계란후라이&rdquo;)를 얻을 수 있습니다.</p>
+<p><strong>[ 프로그램이 작동하는 과정 ]</strong></p>
+<ol>
+<li>프로그래머가 소스코드를 작성 : 계획 작성</li>
+<li>프로그래머가 실행자에게 소스코드를 전달 : 계획 전달</li>
+<li>프로그래머가 실행자에게 &ldquo;진행시켜&rdquo; 라고 명령 전달 : 계획 진행 시작</li>
+<li>프로그래머는 기다린다. : 계획 진행 중.</li>
+<li>프로그래머는 기다린다. : 실행자가 계획이 완료되었다고 얘기하기 전까지.</li>
+<li>프로그래머는 결과를 얻는다 : 실행자가 다 되었다며 결과를 프로그래머에게 준다.</li>
+</ol>
+<p>여기서 새롭게 등장 &ldquo;트리거(Trigger)&rdquo; 가 등장합니다. 3번 단계를 얘기하는 데요.</p>
+<blockquote>
+<p>Trigger</p>
+<ol>
+<li>[명사] (총의) 방아쇠</li>
+<li>[명사] (반응사건을 유발한) 계기[도화선]</li>
+<li>[동사] 촉발시키다 (=set off)</li>
+<li>[동사] (장치를) 작동시키다 (=set off)</li>
+</ol>
+</blockquote>
+<p>[출처: <a href="https://dict.naver.com/search.dict?dicQuery=trigger&amp;query=trigger&amp;target=dic&amp;ie=utf8&amp;query_utf=&amp;isOnlyViewEE=">trigger; 네이버사전</a>]</p>
+<p>말 그대로 계획을 &ldquo;진행시켜!&ldquo;라고 하는 행위나 할 수 있는 사람, 물건 아니면 또 다른 함수를 트리거라고 부릅니다.
+가끔씩 보게 되는 언어이니 짤막하게 언급하고 지나갑니다.</p>
+<p>각 언어의 호출자에게 &ldquo;트리거&quot;를 하는 코드를 보고 갑시다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">## Java : &#34;java&#34; 라는 실행자에게 우리 프로그램 &#34;CookingFriEggProgram&#34; 을 전달하면서 트리거를 합니다.</span>
+java <span style="color:#f92672">-</span>jar CookingFriEggProgram.jar
+<span style="color:#75715e">## Python : &#34;python&#34; 이라는 실행자에게 마찬가지로요.</span>
+python CookingFriEggProgram.py
+<span style="color:#75715e">## Go-Lang : 운영체제(Window 나 MacOS) 에 호출자가 숨어 있어요. 굳이 언급안해도 됩니다.</span>
+CookingFriEggProgram.exe
+</code></pre></div><p>그럼 우리 일상생활에서 트리거는 어떤게 있을까요?</p>
+<p><strong>[일상 생활에서의 트리거]</strong></p>
+<ul>
+<li>스마트폰에서 카카오톡 앱 아이콘을 &ldquo;터치&rdquo; 한다.</li>
+<li>윈도우 PC 에서 카카오톡 앱 아이콘을 마우스로 &ldquo;더블 클릭&rdquo; 한다.</li>
+<li>스마트폰을 켜고 싶을 때, 전원버튼을 &ldquo;꾹 누른다&rdquo;.</li>
+<li>말 잘 안듣는 아이가 있을 때, 잔소리를 &ldquo;시작&quot;한다.</li>
+</ul>
+<hr>
+<h4 id="executor-는-어떻게-함수를-시작할까">Executor 는 어떻게 함수를 시작할까?</h4>
+<p>여기서 소스코드를 조금이라도 작성해 본 사람은 궁금증을 가질 수 있습니다.<br>
+나의 소스코드를 실행하라고 요청했는데 Executor 는 도대체 내 계획이 어디서부터 시작되는지를 알까? 입니다.</p>
+<p>이건 각 언어를 만들어낸 사람의 약속으로 정해져 있다라고 얘기할 수 있습니다.
+여러분이 작성한 소스코드가 수십개의 파일이고, 수천개의 함수로 가득차 있다고 합시다.</p>
+<p>당연히 우리 Executor 도 멍텅구리입니다. 하나부터 열까지 다 알려줘야 해요.<br>
+프로그래머와 언어를 만들어내신 분이 힘을 합쳐 Executor 에게 &ldquo;여기가 시작&quot;점이야 라고 알려주기만 하면 됩니다.</p>
+<p><strong>[ Executor 가 소스코드를 실행하는 과정 ]</strong></p>
+<ol>
+<li>프로그래머가 소스코드 작성완료</li>
+<li>실행자에게 소스코드 실행 명령 내림. &lt;트리거&gt;</li>
+<li>프로그래밍 언어 마다 <U>정해진</U> 시작점이 소스코드에 있는지 찾음.</li>
+<li>찾으면 그곳 부터 진행시킴</li>
+<li>못 찾으면 &ldquo;못 찾겠다 꾀고리&quot;를 시전 후, 실행하지 않고 하던일을 그만둠.</li>
+</ol>
+<p><strong>[ JAVA : &ldquo;정해진 시작점&rdquo;, 여러분이 찾아보세요. ]</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CookingFriEggProgram</span> 
+<span style="color:#f92672">{</span> 
+    <span style="color:#75715e">// 어라? 위치가 위인데, 괜찮을까? 왜 괜찮은지 여러분이 판단 해보세요.
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">CookingFriEgg</span><span style="color:#f92672">(</span> Material pureEgg<span style="color:#f92672">,</span> CookingTool friPan<span style="color:#f92672">,</span> Material oil <span style="color:#f92672">){</span>
+        boilByGas<span style="color:#f92672">(</span>friPan<span style="color:#f92672">);</span>      <span style="color:#75715e">// 이 함수는 다른 곳 어딘가에 또 있다고 하자.
+</span><span style="color:#75715e"></span>        putIntoFriPan<span style="color:#f92672">(</span>oil<span style="color:#f92672">);</span> 
+        putIntoFriPan<span style="color:#f92672">(</span>pureEgg<span style="color:#f92672">);</span>  
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#75715e">// 함수들은 준비되었다.
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">buyFromMarket</span><span style="color:#f92672">(...){</span>
+        <span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span> 
+        <span style="color:#75715e">// 마켓에서 &#34;egg&#34;라고 글자가 적혀 있는걸 사옵니다. 그걸 &#34;pEgg&#34; 라고 이름으로 가리킵니다.
+</span><span style="color:#75715e"></span>        Material pEgg <span style="color:#f92672">=</span> buyFromMarket<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;egg&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#75715e">// 친구한테 &#34;테팔&#34;이라고 글자가 프라이팬을 뺏어옵니다. 그걸 &#34;fPan&#34; 이름으로 합시다.
+</span><span style="color:#75715e"></span>        CookingTool fPan <span style="color:#f92672">=</span> getFromFriend<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;테팔&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#75715e">// 창고에서 &#34;식용유&#34;라고 적혀있는거 가져와서 &#34;oil&#34; 이라고 이름을 지읍시다.  
+</span><span style="color:#75715e"></span>        Material oil <span style="color:#f92672">=</span> getFromStorage<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;식용유&#34;</span><span style="color:#f92672">);</span>
+
+        <span style="color:#75715e">// 우리가 작성해 놓은 계획(함수)에 준비물을 넣어서 실행(또는 호출) 합니다.
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">// 그럼 실행하고 나면, &#34;계란 후라이&#34;를 얻게 되는데 그걸 우리는 &#34;friedEgg&#34; 라고 부르기로 합시다.
+</span><span style="color:#75715e"></span>        Food friedEgg <span style="color:#f92672">=</span> CookingFriEgg<span style="color:#f92672">(</span> pEgg<span style="color:#f92672">,</span> fPan<span style="color:#f92672">,</span> oil <span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#75715e">// 어라? 위치가 아래인데, 괜찮을까? 왜 괜찮은지 여러분이 판단 해보세요.
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">getFromFriend</span><span style="color:#f92672">(...){</span>
+        <span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">getFromStorage</span><span style="color:#f92672">(...){</span>
+        <span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><p><strong>[ C : &ldquo;정해진 시작점&rdquo;, 여러분이 찾아보세요. 문법은 약간 틀릴 수 있어요 ]</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> (<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>argv[]) {
+    <span style="color:#66d9ef">int</span> friedEgg <span style="color:#f92672">=</span> CookingFriEgg(...);
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">buyFromMarket</span>(...){
+    <span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>}
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">getFromFriend</span>(...){
+    <span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>}
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">getFromStorage</span>(...){
+    <span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>}
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">CookingFriEgg</span>( <span style="color:#66d9ef">char</span><span style="color:#f92672">*</span> pureEgg, <span style="color:#66d9ef">char</span><span style="color:#f92672">*</span> friPan, <span style="color:#66d9ef">char</span><span style="color:#f92672">*</span> oil ){
+    ...  
+}
+</code></pre></div><p><strong>[ Python : &ldquo;정해진 시작점&rdquo;, 여러분이 찾아보세요. 문법은 약간 틀릴 수 있어요 ]</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">CookingFriEgg</span>(<span style="color:#f92672">...</span>):
+	<span style="color:#75715e"># ...</span>
+    <span style="color:#75715e"># ...</span>
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">buyFromMarket</span>(<span style="color:#f92672">...</span>):
+	<span style="color:#75715e"># ...</span>
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">getFromFriend</span>(<span style="color:#f92672">...</span>):
+	<span style="color:#75715e"># ...</span>
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">getFromStorage</span>(<span style="color:#f92672">...</span>):
+	<span style="color:#75715e"># ...</span>
+    <span style="color:#75715e"># ...</span>
+
+friedEgg <span style="color:#f92672">=</span> CookingFriEgg(<span style="color:#f92672">...</span>);
+
+</code></pre></div><hr>
+<h4 id="호출호출호출-callcallcall">호출,호출,호출; Call,Call,Call</h4>
+<p>여기서 잠깐 우리 함수의 호출하는 법까지 알아봤는데 이런 모양도 생각해 볼 수 있어요.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">function <span style="color:#a6e22e">returnApple</span>(감 gam){
+    <span style="color:#75715e"># 감을 주면 사과를 내보내주마.</span>
+}
+function <span style="color:#a6e22e">returnGam</span>(호두 hodu){
+    <span style="color:#75715e"># hodu를 주면 감을 내보내주마.</span>
+}
+function <span style="color:#a6e22e">returnHoney</span>(사과 sagwa)){
+    <span style="color:#75715e"># sagwa를 주면 꿀을 내보내주마.</span>
+}
+function <span style="color:#a6e22e">returnTea</span>(꿀 ggul)){
+    <span style="color:#75715e"># ggul을 주면 차를 내보내주마.</span>
+}
+
+<span style="color:#75715e"># 우리가 배운 함수 이용법</span>
+호두 h <span style="color:#f92672">&lt;-</span> <span style="color:#e6db74">&#34;호두라면 호두인것이다&#34;</span>
+감 g <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">returnGam</span>(h)
+사과 a <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">returnApple</span>(g)
+차 c <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">returnTea</span>(a)
+
+<span style="color:#75715e"># &#34;호두라면 호두인것이다&#34; 에서 사과가지 한 줄로 표현할 수 있을까요?</span>
+차 c <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">returnTea</span>(<span style="color:#a6e22e">returnApple</span>(<span style="color:#a6e22e">returnGam</span>(<span style="color:#e6db74">&#34;호두라면 호두인것이다&#34;</span>)))
+
+<span style="color:#75715e"># 이상한가요? 한번 생각해 보세요. 맞는지 틀리는지...</span>
+</code></pre></div><hr>
+<h2 id="정리">정리</h2>
+<p>우리는 함수의 모습을 만들어 보았고, 실제 프로그래밍 언어가 사용하는 함수의 모습에 근접할 수 있었어요. 
+함수는 결국 계획의 다른 이름이었고, 계획은 세부 계획을 가지고 있듯이 함수는 다른 함수를 실행할 계획으로 구성된다는 것을 추측할 수 있었습니다.</p>
+<p>그리고 그 거대한 함수는 호출자(Executor) 에게 맡겨서 프로그래머가 트리거를 하고, 함수의 실행이 완료가 되고 나면 우리는 결과를 얻어낼 수 있습니다.</p>
+<p>다음 과정에서는 &ldquo;조건&rdquo; 이라는 것과 &ldquo;분기&quot;라는 것에 대해 살펴봅시다.<br>
+우리는 이 조건을 위해 함수를 공부했는지도 모릅니다.</p>
+<h6 id="다음-주제로-이어지는-글">다음 주제로 이어지는 글</h6>
+<ul>
+<li>[예정] IF,ELSE 조건, 분기의 서막</li>
+</ul>
+<hr>
+
+		</div>
+
+		<div class="post-tags">
+			
+				
+					<nav class="nav tags">
+							<ul class="flat">
+								
+								<li><a href="/tags/%ED%95%A8%EC%88%98">함수</a></li>
+								
+								<li><a href="/tags/%EB%A9%94%EC%86%8C%EB%93%9C">메소드</a></li>
+								
+								<li><a href="/tags/function">Function</a></li>
+								
+								<li><a href="/tags/method">Method</a></li>
+								
+								<li><a href="/tags/%EC%8A%A4%EC%BD%94%ED%94%84">스코프</a></li>
+								
+								<li><a href="/tags/scope">Scope</a></li>
+								
+								<li><a href="/tags/%ED%98%B8%EC%B6%9C%EC%9E%90">호출자</a></li>
+								
+								<li><a href="/tags/executor">Executor</a></li>
+								
+								<li><a href="/tags/trigger">Trigger</a></li>
+								
+							</ul>
+					</nav>
+				
+			
+		</div>
+	</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> 수학을 알지 못하는 사람들은 자연의 아름다움, 궁극의 아름다움에 도달한 느낌은 갖기 힘들 것이다. 자연을 배우고 싶다면, 자연을 정말로 이해하고 싶다면, 자연이 말하고 있는 언어를 이해할 필요가 있다. </div>
+		<div> - Richard Phillips Feynman </div>
+	</nav>
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-3XQ94GTJBK"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-3XQ94GTJBK');
+	</script><div style="min-width:100%; width:100%;background-color: #EEEEEE;margin-top: 20px;border-radius: 4px;">
+    
+    <div id="fb-comments" class="fb-comments"
+         data-href="https://understand.tech-kitty.com/#/"
+         data-width="100%"
+         data-numposts="10"
+         data-lazy="true"
+    ></div>
+</div>
+<style>
+     
+    .fb_iframe_widget_fluid_desktop, .fb_iframe_widget_fluid_desktop span, .fb_iframe_widget_fluid_desktop iframe {
+        max-width: 99% !important;
+        width: 99% !important;
+        text-align: center;
+        padding-top: 2px;
+    }
+</style>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var darkModeEnabled = false;
+
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            console.log('mode-detect : ', 'dark');
+            darkModeEnabled = true;
+        }else{
+            console.log('mode-detect : ', 'white');
+            darkModeEnabled = false;
+        }
+
+        var loc = document.getElementById('fb-comments');
+        loc.setAttribute('data-href', location.href);
+        loc.setAttribute('data-colorscheme', darkModeEnabled ? "dark":"light");
+
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+
+        dsq.setAttribute('src', "https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v12.0");
+        dsq.setAttribute('nonce', "YGoGPMMr");
+        dsq.setAttribute('crossorigin', "anonymous");
+
+        (document.getElementsByTagName('body')[0]).appendChild(dsq);
+    });
+</script></div>
+
+
+
+
+</body>
+</html>

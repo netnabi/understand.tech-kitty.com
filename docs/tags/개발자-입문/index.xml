@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>개발자 입문 on 테크;냥이</title>
+    <link>https://tech-kitty.com/tags/%EA%B0%9C%EB%B0%9C%EC%9E%90-%EC%9E%85%EB%AC%B8/</link>
+    <description>Recent content in 개발자 입문 on 테크;냥이</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko</language>
+    <copyright>수학을 알지 못하는 사람들은 자연의 아름다움, 궁극의 아름다움에 도달한 느낌은 갖기 힘들 것이다. 자연을 배우고 싶다면, 자연을 정말로 이해하고 싶다면, 자연이 말하고 있는 언어를 이해할 필요가 있다.</copyright>
+    <lastBuildDate>Sat, 11 Dec 2021 12:13:32 +0900</lastBuildDate><atom:link href="https://tech-kitty.com/tags/%EA%B0%9C%EB%B0%9C%EC%9E%90-%EC%9E%85%EB%AC%B8/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>헬로우</title>
+      <link>https://tech-kitty.com/001_coding_start/</link>
+      <pubDate>Sat, 11 Dec 2021 12:13:32 +0900</pubDate>
+      
+      <guid>https://tech-kitty.com/001_coding_start/</guid>
+      <description>개발자를 처음 시작하는 여러분. 요즘에는 개발자가 되기 위한 많은 과정과 교육자료가 많이 있습니다. 그럼에도 불구하고 현업의 개발자들만 알아 들을 수 있는 어려운 용어나 내용이 개발자에 입문하려는 이들에게 큰 장벽이 되고 있는게 안타깝습니다.
+저 조차도 10여년이 넘도록 IT 세계에 있음에도 불구하고 이해하기 쉽지 않은 내용들이 많습니다. 그래서 어려움을 겪는 여러분들에게 조금이나마 개발을 시작하는데 필요한 개념들을 접근하기 쉽게 알려드리기 위해 이렇게 글을 남깁니다.
+내용 중에 이해가 안가는 부분이나, 추가로 다루어 주었으면 하는 주제가 있다면</description>
+    </item>
+    
+  </channel>
+</rss>

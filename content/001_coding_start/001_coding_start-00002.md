@@ -2,12 +2,12 @@
 title: "소스코드; Source Code"
 date: 2021-12-11T12:15:32+09:00
 description: "소스코드를 이해하는 법 How to understand source code."
-tags: [입문, 주니어 개발자, 프로그래밍, 소스코드, Source Code]
+tags: [소스코드, Source Code]
 draft: false
 ---
 
 ###### 이전에 알아야 읽어두어야 할 글
-[프로그램, 프로그래밍의 이해](/posts/article-00001)
+[프로그램, 프로그래밍의 이해](/001_coding_start/001_coding_start-00001)
 
 ---
 
@@ -262,6 +262,6 @@ finished = finish(cookProgram)
 ---
 
 ###### 다음 주제로 이어지는 글
-[변수 Variable](/posts/article-00003)
+[변수 Variable](/001_coding_start/001_coding_start-00003)
 
 ---

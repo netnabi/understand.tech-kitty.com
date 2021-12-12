@@ -2,12 +2,12 @@
 title: "변수 Variable"
 date: 2021-12-12T11:15:32+09:00
 description: "변수의 정의, Definition of variable."
-tags: [입문, 주니어 개발자, 프로그래밍, 변수, 함수, 널(NULL)]
+tags: [변수, 함수, 널(NULL)]
 draft: false
 ---
 
 ###### 이전에 알아야 읽어두어야 할 글
-[소스코드; Source Code](/posts/article-00002)
+[소스코드; Source Code](/001_coding_start/001_coding_start-00002)
 
 ---
 
@@ -60,7 +60,7 @@ $$
 
 우리가 살고 있는 세상에 "철수와 영희" 라는 사람들이 있다고 합시다.
 
-![철수와 영희](/images/article-000002/chulsu.gif)
+![철수와 영희](/images/001_coding_start/001_coding_start-000003/chulsu.gif)
 ###### [철수와 영희] 그렇다면 그런겁니다.
 
 철수와 영희가 있다고 했는데,   
@@ -79,7 +79,7 @@ $$
 
 총 4개의 요소가 있습니다.
 
-![실존하는 사물이나 생물을 표현](/images/article-000002/naming.png)
+![실존하는 사물이나 생물을 표현](/images/001_coding_start/001_coding_start-000003/naming.png)
 ###### [이름의 탄생] 실존하는 사물이나 생물의 정보를 다른 이에게 표현하기 위해서는 "이름"외에는 방법이 없는 것 같아요.
 
 여러분이 대한민국 땅에 존재하는 이들 중 "철수"와 "영희"가 있다라는 정보를 
@@ -87,7 +87,7 @@ $$
 
 다르게도 접근해 봅시다.
 
-![이름이 없는 이들](/images/article-000002/naming2.png)
+![이름이 없는 이들](/images/001_coding_start/001_coding_start-000003/naming2.png)
 ###### [이름이 없다면?] 이름이 없다 해서 존재하지 않는다고 얘기할 수 없다.
 
 우리가 이름을 안 붙인다고 해서 "존재"를 부정할 수 없다는 걸 생각해야 합니다.
@@ -101,7 +101,7 @@ $$
 이게 컴퓨터와 무슨 관련이 있을까요?  
 눈치가 빠른 사람은 느낌이 벌써 올 겁니다.
 
-![정보전달의 필수는 이름](/images/article-000002/naming3.png)
+![정보전달의 필수는 이름](/images/001_coding_start/001_coding_start-000003/naming3.png)
 ###### [정보전달을 위해서는 이름] 이름 없이는 정보가 있다는 내용을 전달할 수 없다.
 
 컴퓨터 입장에서 개발자에게 <u>이러한 정보들이 존재</u>한다라고 이름을 지어서 전달해야  
@@ -111,7 +111,7 @@ $$
 
 그럼 위의 우리가 배운 함수에 이런 형식을 추가해 볼까요?
 
-![변수는 이름일 뿐](/images/article-000002/naming4.png)
+![변수는 이름일 뿐](/images/001_coding_start/001_coding_start-000003/naming4.png)
 ###### [정보를 지칭하는 건 이름] 알수 없는 정보에 이름을 붙여주니 우리가 그 존재를 인식하게 되었다.
 
 > 변수(Variable) 은 그 어떤 정보를 가리키는 "이름"이다.
@@ -186,7 +186,7 @@ NULL 이나 Undefined 라는 것이에요.
 
 위에서 언급한 "배송할 ~~ 주소") 이 문장은 소스 코드입니다. 즉 계획이죠.  
 
-![마이클 타이슨](/images/article-000002/plan_after_punch.jpg)
+![마이클 타이슨](/images/001_coding_start/001_coding_start-000003/plan_after_punch.jpg)
 ###### [마이클 타이슨] 사람은 누구나 계획이 있다. 쳐맞기 전까지는
 
 타이슨도 이 부분을 잘 언급해주고 있습니다.  

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>프로그래밍 on 테크;냥이</title>
-    <link>https://tech-kitty.com/tags/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/</link>
-    <description>Recent content in 프로그래밍 on 테크;냥이</description>
+    <title>프로그램 on 테크;냥이</title>
+    <link>https://tech-kitty.com/tags/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8/</link>
+    <description>Recent content in 프로그램 on 테크;냥이</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko</language>
     <copyright>수학을 알지 못하는 사람들은 자연의 아름다움, 궁극의 아름다움에 도달한 느낌은 갖기 힘들 것이다. 자연을 배우고 싶다면, 자연을 정말로 이해하고 싶다면, 자연이 말하고 있는 언어를 이해할 필요가 있다.</copyright>
-    <lastBuildDate>Sat, 11 Dec 2021 12:13:32 +0900</lastBuildDate><atom:link href="https://tech-kitty.com/tags/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 11 Dec 2021 12:13:32 +0900</lastBuildDate><atom:link href="https://tech-kitty.com/tags/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>프로그램, 프로그래밍의 이해</title>
       <link>https://tech-kitty.com/001_coding_start/001_coding_start-00001/</link>

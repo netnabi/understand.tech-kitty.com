@@ -36,7 +36,7 @@ summaryLength = 20
     subtitle = "다시 이해하는 IT 개발 이야기"
 
     # Content types which are included in home page recent posts list.
-    # mainSections = ["posts"]
+    mainSections = ["001_coding_start"]
 
     # Content types which are excludes Disqus comments.
     disableDisqusTypes = []
@@ -68,19 +68,14 @@ summaryLength = 20
 
 # Main menu which appears below site header.
 [[menu.main]]
-name = "처음으로"
+name = "최근 글"
 url = "/"
 weight = 1
 
 [[menu.main]]
-name = "모든 글"
-url = "/posts"
+name = "개발자 되기"
+url = "/001_coding_start"
 weight = 2
-
-[[menu.main]]
-name = "주제별 분류"
-url = "/subjects"
-weight = 3
 
 [[menu.main]]
 name = "태그"
@@ -102,3 +97,4 @@ weight = 4
 # Enable tags.
 [taxonomies]
    tag = "tags"
+   category = "categories"

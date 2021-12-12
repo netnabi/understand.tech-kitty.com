@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta property="fb:app_id" content="299152852116172" /><title>소스코드; Source Code - 테크;냥이</title><link rel="icon" type="image/png" href=icons/favicon.png /><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="소스코드; Source Code" />
+<meta property="og:description" content="소스코드를 이해하는 법 How to understand source code." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tech-kitty.com/posts/article-00002/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-12-11T12:15:32+09:00" />
+<meta property="article:modified_time" content="2021-12-11T12:15:32+09:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="소스코드; Source Code"/>
+<meta name="twitter:description" content="소스코드를 이해하는 법 How to understand source code."/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://tech-kitty.com/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://tech-kitty.com/css/main.css" /><link rel="stylesheet" type="text/css" href="https://tech-kitty.com/css/dark.css" media="(prefers-color-scheme: dark)" />
+
+	
+	<script src="https://tech-kitty.com/js/main.js"></script>
+	<script src="https://tech-kitty.com/js/custom.js"></script>
+
+	<script src="https://tech-kitty.com/js/jquery-3.6.0.slim.min.js"></script>
+
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<base href="https://tech-kitty.com/">
+	<h1 class="site-title"><a href="https://tech-kitty.com/">테크;냥이</a></h1>
+	<div class="site-description"><h2>다시 이해하는 IT 개발 이야기</h2><nav class="nav social">
+			<ul class="flat"></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">처음으로</a>
+			</li>
+			
+			<li>
+				<a href="/posts">모든 글</a>
+			</li>
+			
+			<li>
+				<a href="/subjects">주제별 분류</a>
+			</li>
+			
+			<li>
+				<a href="/tags">태그</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">소스코드; Source Code</h1>
+			<div class="meta">&mdash; Dec 11, 2021</div>
+		</div>
+
+		<div class="markdown">
+			<h6 id="이전에-알아야-읽어두어야-할-글">이전에 알아야 읽어두어야 할 글</h6>
+<p><a href="/posts/article-00001">프로그램, 프로그래밍의 이해</a></p>
+<hr>
+<h3 id="이-글을-읽기-위한-배경">이 글을 읽기 위한 배경</h3>
+<ul>
+<li>앞서 설명한 프로그램의 이해</li>
+<li>기능, 작업, 언어를 생각하는 사고능력</li>
+</ul>
+<h3 id="얻게-되는-내용">얻게 되는 내용</h3>
+<ul>
+<li>할일 목록을 소스코드화 시키는 연상 능력</li>
+<li>특정언어에 국한되지 않은 소스코드를 바라보는 시야</li>
+</ul>
+<h2 id="개요">개요</h2>
+<p>소스코드를 처음 접하게 되는 여러분은 혼란의 도가니탕에 빠져 있을것이라 예상하고 있어요.<br>
+그러니까 이 글을 계속 읽고 있을 것입니다. 물론 저의 희망이지요.</p>
+<p>왜 어려운걸까요? 단지 새로운 것이라서, 원래 어려운것을 배우는 것이니까, 제가 알 수 없는 그 무슨 이유가 있겠죠.<br>
+하지만 두려워 하지 마세요. 프로그래밍 언어는 매우 쉽습니다.</p>
+<p>프로그래밍 언어는 하나의 언어입니다.<br>
+인간이 이해할 수 있는 언어이며, 우리 파더기(컴퓨터)에게 시키고 싶은 일을 자세히 기술하기 위한 수단입니다.</p>
+<p>여러분은 이미 &ldquo;하나의 언어&quot;를 알고 있다고 생각합니다.
+대한민국 인류가 사용하고 있는 언어인 &ldquo;한글&quot;을 얘기합니다.
+어떠한 응용도 가능하며 순서를 뒤바뀌어도 뜻이 전달되며, 이것(저것, 아까, 그거)나 사투리(거시기, 머시기&hellip;)등의 대명사도
+통용되는 위대한 기능 말입니다.</p>
+<p>이러한 자유로운 변형이 가능한 언어를 우리는 <strong>비 정형</strong> 언어라고 부릅니다.
+뭔가 <strong>형</strong>태가 <strong>정</strong>확하지 <strong>않은</strong> 특성을 가진 언어란 뜻입니다.</p>
+<p>하지만 이 같은 언어는 그 자유로움 때문에 그 언어를 듣고 이해하는 입장에서는 많은 지능이 필요하죠.
+그렇기 때문에 많은 오해가 발생하는 경험을 여러분도 겪어봤을 것이에요.</p>
+<p>똑같은 일을 2번이나 시켰는데, 매번 다르게 이해하고 답변한다면
+우리는 기대했던 결과를 받지 못할까 불안감을 가지게 됩니다.</p>
+<p>그래서 프로그래밍 언어는<br>
+우리 귀여운 파더기가 이해할 수 있도록 명료해야 하고, 생각이 복잡해지지 않도록 단순해야 합니다.</p>
+<p>언제든지 다시 얘기(실행)시켜도 같은 결과를 기대할 수 있어야 하는게 프로그래밍 언어가 가져야 하는 항목이에요.</p>
+<blockquote>
+<p>인류가 실생활에서 사용하는 언어는 형태가 자유롭고<br>
+컴퓨터가 사용하는 언어는 형태가 자유롭지 못합니다.<br>
+그래서 간단할 수 밖에 없어요.</p>
+</blockquote>
+<p>그래서 단순하고 오해가 없도록, 적은 문법과 짧은 길이를 사용합니다.</p>
+<h2 id="행동을-기술하는-언어-소스코드">행동을 기술하는 언어; 소스코드</h2>
+<p>우린 프로그래밍(이하 코딩)을 하는 이유는 무언가를 창조하는 것이라고 할 수 있지만,<br>
+정확히는 원하는 것을 파더기가 대신 해(실행)주기를 원해서입니다.</p>
+<p><U>코딩은 목적은 일을 시켜 결과를 얻어내는 것입니다.</U></p>
+<p>우리는 파더기에게 원하는 결과를 얻어내기 위해 프로그램(작업목록)을 전달하여 실행시키도록 유도해야 합니다.</p>
+<p>결국 &ldquo;어떻게 행동해라&quot;는 작업들을 작성하는 것이 코딩을 하는 것과 동일한 작업이 됩니다.
+작업 목록 작성을 잘 하면 코딩을 잘 하게 되는 건 당연한 이치겠지요.</p>
+<p>먼저 소스 코드를 보기 전에 새로운 프로그램(작업 목록)을 통해 이해해 나가 보지요.</p>
+<hr>
+<p><strong>[ 계란 후라이 요리 프로그램 ]</strong></p>
+<p>    과정 - 1. 요리를 시작합니다.<br>
+    과정 - 2. 달걀, 식용유, 프라이팬, 가스렌지를 준비합니다.<br>
+    과정 - 3. 프라이팬을 가스렌지로 데웁니다.<br>
+    과정 - 4. 식용유를 프라이팬에 두릅니다.<br>
+    과정 - 5. 뜨거워지길 기다립니다.<br>
+    과정 - 6. 달걀을 깨서 프라이팬에 넣습니다.<br>
+    과정 - 7. 달걀이 익을 때까지 기다립니다.<br>
+    과정 - 8. 요리 완료.</p>
+<p>총 시작과 끝을 포함한 8개의 과정이 있습니다.<br>
+그리고 각 과정도 세부적으로 시작과 끝이 있습니다. 어디있냐구요?<br>
+번호(2. ~) 뒷 부분부터 시작해서 마침표(.)로 끝나는 부분을 과정을 서술하는 것이라고 볼 수 있지요.<br>
+아니면 각 과정의 사이에는 &ldquo;다음 줄&quot;이 있어서 과정과 과정 사이를 구분할 수 있지요.
+사소해 보이지만, 이 프로그램을 처음 보는 우리 파더기는 그리 똑똑하지 않습니다.</p>
+<p>우리 파더기는 알아서 생각하는 법이 없습니다!<br>
+이렇게 표현할 수 있죠.</p>
+<p><strong>[시작]</strong> 과정 - 1. 요리를&hellip;. 니다.<strong>[끝]</strong><br>
+<strong>[시작]</strong> 과정 - 2. 달걀,&hellip;. 니다.<strong>[끝]</strong></p>
+<p>그럼 이제 이 문장을 파더기가 이해하기 쉽도록 바꿔봅시다.</p>
+<p>&ldquo;달걀, 식용유, 프라이팬, 가스렌지를 준비합니다.&rdquo; 이 문장은 어떤 내용인가요?<br>
+일을 시킨다고 했으니 &ldquo;행동&quot;을 나타내는 동사가 있을 것입니다.<br>
+그리고 그 행동에 필요한 준비물이 필요합니다.</p>
+<p>일상생활에서도 우리가 하는 일어나는 일들은 단순하게 표현한다면
+어떠한 현상이나 행동이 일어나고 그에 대한 결과가 나오게 됩니다.</p>
+<p>예를 들어보면,</p>
+<table>
+<thead>
+<tr>
+<th>일상생활 표현</th>
+<th>명료하게(자세하게) 표현</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>태풍이 불어 창문이 깨졌다.</td>
+<td>창문이 있다. 태풍이 불었다. 그래서 창문이 깨졌다.</td>
+</tr>
+<tr>
+<td>커피를 사 먹었다.</td>
+<td>커피주문을 직원에게 전달했다. 직원이 커피를 주었다. 커피를 먹었다.</td>
+</tr>
+<tr>
+<td>컵에 물을 채웠다.</td>
+<td>컵이 있다. 물을 컵에 넣는다. 물이 컵에 담겨있다.</td>
+</tr>
+</tbody>
+</table>
+<p>이런 설명들은 아직 완전하다고는 할 수 없지만,<br>
+중요한 건 숨어 있는 요소들을 좀 더 자세히 표현할 줄 알아야 한다는 것입니다.</p>
+<p>이걸 더 다르게 표현해 보겠습니다.</p>
+<table>
+<thead>
+<tr>
+<th>일상생활 표현</th>
+<th>준비물, 재료</th>
+<th>행동</th>
+<th>결과</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>태풍이 불어 창문이 깨졌다.</td>
+<td>창문</td>
+<td>태풍이 분다</td>
+<td>깨진 창문</td>
+</tr>
+<tr>
+<td>커피를 사 먹었다.</td>
+<td>커피 주문</td>
+<td>직원에게 주문한다</td>
+<td>커피</td>
+</tr>
+<tr>
+<td>컵에 물을 채웠다.</td>
+<td>컵</td>
+<td>물을 넣는다</td>
+<td>물이 담긴 컵</td>
+</tr>
+</tbody>
+</table>
+<p>소스코드는 결국 재료, 행동, 결과의 반복적인 표현입니다.
+위의 계란 후라이 과정을 명료하게 다시 써 봅니다.</p>
+<p><strong>[ 계란 후라이 요리 프로그램 : 명료하게 ]</strong></p>
+<table>
+<thead>
+<tr>
+<th>순서</th>
+<th>준비물, 재료</th>
+<th>행동</th>
+<th>결과</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>과정 1</td>
+<td>요리</td>
+<td>시작해라</td>
+<td>행동 시작</td>
+</tr>
+<tr>
+<td>과정 2</td>
+<td>달걀, 식용유, 프라이팬, 가스렌지</td>
+<td>준비해라</td>
+<td>주방에 재료들이 배치되었다</td>
+</tr>
+<tr>
+<td>과정 3</td>
+<td>프라이팬, 가스렌지</td>
+<td>데워라</td>
+<td>뜨거워진 프라이팬</td>
+</tr>
+<tr>
+<td>과정 4</td>
+<td>식용유, 뜨거워진 프라이팬</td>
+<td>넣어라</td>
+<td>식용유가 들어간 프라이팬</td>
+</tr>
+<tr>
+<td>과정 5</td>
+<td>시간, 식용유가 들어간 프라이팬</td>
+<td>기다려라</td>
+<td>뜨거워진 식용유</td>
+</tr>
+<tr>
+<td>과정 6</td>
+<td>달걀, 뜨거워진 식용유, 프라이팬</td>
+<td>넣어라</td>
+<td>계란/식용유가 들어간 프라이팬</td>
+</tr>
+<tr>
+<td>과정 7</td>
+<td>시간, 계란/식용유가 들어간 프라이팬</td>
+<td>기다려라</td>
+<td>익힌 계란 후라이</td>
+</tr>
+<tr>
+<td>과정 8</td>
+<td>요리</td>
+<td>완료해라</td>
+<td>행동 종료, 쉬자</td>
+</tr>
+</tbody>
+</table>
+<p>즉 일부 과정에는 앞 과정에서 나온 결과를 다음 과정에서 사용해야 하죠.
+이걸 단순한 문법으로 표현해 봅시다.<br>
+간단하게 과정 3,4를 표현해보죠.</p>
+<p><strong>[ 우리의 소스코드 첫번째 버전 ]</strong><br>
+과정3 : 프라이팬, 가스렌지 -&gt; 데워라 -&gt; 뜨거워진 프라이팬<br>
+과정4 : 식용유, 뜨거워진 프라이팬 -&gt; 넣어라 -&gt; 식용유가 들어간 프라이팬</p>
+<p>더 간단하게 할 수 있을 거 같아요. 순서는 위에서 아래로 하니 반복해서 나오는 &ldquo;과정&quot;을 빼죠.</p>
+<p><strong>[ 우리의 소스코드 두번째 버전 ]</strong><br>
+프라이팬, 가스렌지 -&gt; 데워라 -&gt; 뜨거워진 프라이팬<br>
+식용유, 뜨거워진 프라이팬 -&gt; 넣어라 -&gt; 식용유가 들어간 프라이팬</p>
+<p>우리가 문법을 만들었어요. 총 1줄에 3개의 항목이 있어야 하고 각 항목은 &ldquo;-&gt;&rdquo; 로 구분됩니다.
+결국 &ldquo;준비물&rdquo; -&gt; &ldquo;행동&rdquo; -&gt; &ldquo;결과&rdquo; 이런 형태를 지녀야 하죠.
+파더기가 이해하기에는 충분한거 같습니다.</p>
+<p>하지만 준비물과 결과를 순서에 맞춰 써야만 구분됩니다.<br>
+준비물과 결과를 확실히 구분하고 싶어요.</p>
+<p><strong>[ 우리의 소스코드 세번째 버전 ]</strong><br>
+(프라이팬, 가스렌지) 데워라 -&gt; 뜨거워진 프라이팬<br>
+(식용유, 뜨거워진 프라이팬) 넣어라 -&gt; 식용유가 들어간 프라이팬</p>
+<p>이 정도도 충분해 보이지만 만약 복잡한 행동이라면, 알아보기 힘들거 같습니다.<br>
+행동이 &ldquo;지지고 볶고 데우고 10분있다 데치면서 공중으로 한바퀴 돌려라&rdquo; 라면,</p>
+<ul>
+<li>(프라이팬, 가스렌지) 지지고 볶고 데우고 10분있다 데치면서 공중으로 한바퀴 돌려라 -&gt; 뜨거워진 프라이팬</li>
+</ul>
+<p>너무 내용이 깁니다. 간단한 내용으로 돌아가보죠.<br>
+이 요리 프로그램에서 원하는건 &ldquo;계란 후라이&quot;를 원하는 것이지요.</p>
+<ul>
+<li>(요리) 계란 후라이 프로그램을 가동 -&gt; 익힌 계란 후라이</li>
+</ul>
+<p>이렇게도 표현할 수 있습니다. 그리고 이 형태에 약간의 &ldquo;영어&rdquo; 문법을 가미한다면 어떨까요?</p>
+<ul>
+<li>(요리) 계란 후라이 프로그램을 가동 -&gt; 익힌 계란 후라이</li>
+<li>(한국식 서술) 계란 후라이 프로그램을 가동하면 익힌 계란 후라이가 나올거야</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>서술 순서</th>
+<th>표현</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>한국식</td>
+<td>프로그램에 계란을 넣고 실행하면 익힌 계란 후라이가 나온다</td>
+</tr>
+<tr>
+<td>영문식</td>
+<td>계란 후라이를 받았어, 프로그램을 실행하는데, 계란을 넣었지</td>
+</tr>
+<tr>
+<td>영어로</td>
+<td>I got fried egg when I execute the program with egg</td>
+</tr>
+</tbody>
+</table>
+<p>억지스럽긴 하지만, 컴퓨터의 원조는 동양이 아니니 소스코드는 서양식 표현에 가까워집니다.</p>
+<ul>
+<li>(서양식 코드) 익힌 계란 후라이 &lt;- 요리프로그램 + 계란</li>
+<li>(더 고급스럽게) 익힌 계란 후라이 &lt;- 요리프로그램( 계란 )</li>
+</ul>
+<p>이 고급스러운 서양식 코드가 현재의 소스코드의 형태와 가장 유사합니다.</p>
+<blockquote>
+<p>결과 &lt;- 행동 ( 준비물1, 준비물2, 준비물3 )</p>
+</blockquote>
+<p>물론 컴퓨터를 처음 만든 사람들이 수학에서 사용하는 형태를 차용했다고도 볼 수 있습니다.</p>
+<p>우리를 괴롭혔던 수학의 편린 :
+$$
+\begin{align}
+y = {f(x)}
+\end{align}
+$$<br>
+f라는 기계(행동)에 x를 넣으면 y가 나온다(얻게 된다).</p>
+<p>마지막 소스코드 버전은 이렇게 바꿀 수 있습니다.
+수학의 모양과 비슷하게 바꿔봅시다.</p>
+<p><strong>[ 우리의 소스코드 마지막 버전 ]</strong></p>
+<table>
+<thead>
+<tr>
+<th>소스 코드, 순서는 위에서 아래로 (한글)</th>
+<th>소스 코드 (영문)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>행동시작 = 시작해라(요리)</td>
+<td>started = start(cook-program)</td>
+</tr>
+<tr>
+<td>배치됨 = 준비해라(달걀, 식용유, 프라이팬, 가스렌지)</td>
+<td>arranged = ready(egg, oil, fri-pan, gas)</td>
+</tr>
+<tr>
+<td>뜨거워진 프라이펜 = 데워라(가스렌지,프라이팬)</td>
+<td>boiled-pan = boil(gas, fri-pan)</td>
+</tr>
+<tr>
+<td>식용유가 들어간 프라이팬 =  넣어라(식용유, 프라이팬)</td>
+<td>fri-pan+oil = put(oil, boiled-pan)</td>
+</tr>
+<tr>
+<td>뜨거워진 식용유 =  기다려라(시간, 식용유가 들어간 프라이팬)</td>
+<td>boiled-oil = wait(time, fri-pan+oil)</td>
+</tr>
+<tr>
+<td>계란/식용유가 들어간 프라이팬 = 넣어라(달걀, 뜨거워진 식용유, 프라이팬)</td>
+<td>fri-pan+oil+egg = put(egg, boiled-oil, boiled-pan)</td>
+</tr>
+<tr>
+<td>행동종료 = 종료해라(요리)</td>
+<td>finished = finish(cook-program)</td>
+</tr>
+</tbody>
+</table>
+<p>중간에 억지스러운 부분이 있지만, 말하고자 하는 것은 <U>일을 시키는 문장은 이렇게 표현</U>할 수 있다라는 것이죠.</p>
+<p>결국 이 표현을 프로그래밍 언어의 요소로 얘기할 수 있습니다.</p>
+<table>
+<thead>
+<tr>
+<th>우리가 찾아낸 요소</th>
+<th>소스 코드 표현</th>
+<th>영어로</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>준비물 / 재료들</td>
+<td>매개 변수들</td>
+<td>Parameters</td>
+</tr>
+<tr>
+<td>행동</td>
+<td>함수 / 메쏘드 / 기능</td>
+<td>Function / Method</td>
+</tr>
+<tr>
+<td>결과물</td>
+<td>결과 값</td>
+<td>Return value</td>
+</tr>
+</tbody>
+</table>
+<p>우리가 소스코드를 처음 접했을 때의 도통 모르겠던 문법은 이렇게 간단한 구성요소들의 집합이라는 걸 알게 되었습니다.
+그래서 쉽다고 한거에요.
+단순 간결하게 시키고 싶은일을 순서에 맞게 표현한것이 소스코드입니다.</p>
+<p>이를 소스코드로 그럴듯하게 써보고, 다음에 함수에 대해서 더 얘기해봐요.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 일부러 간략화 시키지 않고, 자세하게 표현합니다.</span>
+<span style="color:#75715e"># 이 불편한 것들은 다음 단락에서 다뤄봅시다.</span>
+
+<span style="color:#75715e"># 1. 요리를 시작합니다. 시작했다는 결과를 얻게 됩니다.</span>
+started <span style="color:#f92672">=</span> start<span style="color:#f92672">(</span>cookProgram<span style="color:#f92672">)</span>
+<span style="color:#75715e"># 2. 재료 준비합니다. 주방에 재료들이 정렬됩니다</span>
+arranged <span style="color:#f92672">=</span> ready<span style="color:#f92672">(</span>egg, oil, friPan, gas<span style="color:#f92672">)</span>
+<span style="color:#75715e"># 3. 가스로 프라이팬을 가열합니다. 뜨거운 팬이 되겠네요</span>
+boiledPan <span style="color:#f92672">=</span> boil<span style="color:#f92672">(</span>gas, friPan<span style="color:#f92672">)</span>
+<span style="color:#75715e"># 4. 프라이팬에 오일을 넣습니다. 프라이팬안에 오일이 들어가있네요</span>
+boiledFriPanWithOil <span style="color:#f92672">=</span> put<span style="color:#f92672">(</span>oil, boiledPan<span style="color:#f92672">)</span>
+<span style="color:#75715e"># 5. 기다리면 오일이 뜨거워지죠.</span>
+boiledFriPanWithBoiledOil <span style="color:#f92672">=</span> wait<span style="color:#f92672">(</span>time, boiledFriPanWithOil<span style="color:#f92672">)</span>
+<span style="color:#75715e"># 6. 뜨거운 프라이팬에 계란을 넣습니다. 아직 뜨거운 오일도 같이 있어요.</span>
+boiledFriPanWithBoiledOilWithEgg <span style="color:#f92672">=</span> put<span style="color:#f92672">(</span>egg, boiledFriPanWithBoiledOil<span style="color:#f92672">)</span>
+<span style="color:#75715e"># 7. 기다리면 계란이 익습니다. 계란도 프라이팬 안에 있어요.</span>
+boiledFriPanWithBoiledOilWithFriedEgg <span style="color:#f92672">=</span> wait<span style="color:#f92672">(</span>time, boiledFriPanWithBoiledOilWithEgg<span style="color:#f92672">)</span>
+<span style="color:#75715e"># 8. 원하는 걸 얻었으니 요리를 그만하라고 합시다.</span>
+finished <span style="color:#f92672">=</span> finish<span style="color:#f92672">(</span>cookProgram<span style="color:#f92672">)</span>
+</code></pre></div><hr>
+<h6 id="다음-주제로-이어지는-글">다음 주제로 이어지는 글</h6>
+<p><a href="/posts/article-00003">변수 Variable</a></p>
+<hr>
+
+		</div>
+
+		<div class="post-tags">
+			
+				
+					<nav class="nav tags">
+							<ul class="flat">
+								
+								<li><a href="/tags/%EC%9E%85%EB%AC%B8">입문</a></li>
+								
+								<li><a href="/tags/%EC%A3%BC%EB%8B%88%EC%96%B4-%EA%B0%9C%EB%B0%9C%EC%9E%90">주니어 개발자</a></li>
+								
+								<li><a href="/tags/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D">프로그래밍</a></li>
+								
+								<li><a href="/tags/%EC%86%8C%EC%8A%A4%EC%BD%94%EB%93%9C">소스코드</a></li>
+								
+								<li><a href="/tags/source-code">Source Code</a></li>
+								
+							</ul>
+					</nav>
+				
+			
+		</div>
+	</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> 수학을 알지 못하는 사람들은 자연의 아름다움, 궁극의 아름다움에 도달한 느낌은 갖기 힘들 것이다. 자연을 배우고 싶다면, 자연을 정말로 이해하고 싶다면, 자연이 말하고 있는 언어를 이해할 필요가 있다. </div>
+		<div> - Richard Phillips Feynman </div>
+	</nav>
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-3XQ94GTJBK"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-3XQ94GTJBK');
+	</script><div style="min-width:100%; width:100%;background-color: #EEEEEE;margin-top: 20px;border-radius: 4px;">
+    
+    <div id="fb-comments" class="fb-comments"
+         data-href="https://understand.tech-kitty.com/#/"
+         data-width="100%"
+         data-numposts="10"
+         data-lazy="true"
+    ></div>
+</div>
+<style>
+     
+    .fb_iframe_widget_fluid_desktop, .fb_iframe_widget_fluid_desktop span, .fb_iframe_widget_fluid_desktop iframe {
+        max-width: 99% !important;
+        width: 99% !important;
+        text-align: center;
+        padding-top: 2px;
+    }
+</style>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var darkModeEnabled = false;
+
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            console.log('mode-detect : ', 'dark');
+            darkModeEnabled = true;
+        }else{
+            console.log('mode-detect : ', 'white');
+            darkModeEnabled = false;
+        }
+
+        var loc = document.getElementById('fb-comments');
+        loc.setAttribute('data-href', location.href);
+        loc.setAttribute('data-colorscheme', darkModeEnabled ? "dark":"light");
+
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+
+        dsq.setAttribute('src', "https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v12.0");
+        dsq.setAttribute('nonce', "YGoGPMMr");
+        dsq.setAttribute('crossorigin', "anonymous");
+
+        (document.getElementsByTagName('body')[0]).appendChild(dsq);
+    });
+</script></div>
+
+
+
+
+</body>
+</html>

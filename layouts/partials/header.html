@@ -1,6 +1,13 @@
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+	<meta name="keyword" content="{{ .Site.Params.metaKeyword }}" />
+	<meta name="description" content="{{ .Site.Params.metaDescription }}" />
+	<meta name="author" content="{{ .Site.Params.metaAuthor }}">
+
+	<meta name="robots" content="index, follow"/>
+	
 	<meta property="fb:app_id" content="{{ .Site.Params.facebookAppId }}" />
 	{{- $title := ( .Title ) -}}
 	{{- $siteTitle := ( .Site.Title ) -}}

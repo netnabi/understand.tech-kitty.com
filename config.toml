@@ -1,6 +1,7 @@
 baseURL = 'https://tech-kitty.com/'
 languageCode = 'ko'
 title = '테크;냥이'
+
 publishDir = 'docs'
 # Clean and minimal personal [blog theme for Hugo](https://github.com/vividvilla/ezhil)
 theme = "ezhil"
@@ -65,6 +66,10 @@ summaryLength = 20
     customJS = ["js/custom.js"]
 
     facebookAppId = "299152852116172"
+
+    metaKeyword = '국비교육, 주니어 개발자, 코딩 입문, 부트캠프, 프로그래밍, 코딩, 개발자, 자바, Java, Spring, Algorithm, Computer science, Coding, Bootcamp, Programming, Function, Method, Language, 컴퓨터 공학, 비전공자, 최신 개발, 테크 기업, 유니콘'
+    metaDescription = '개발,코딩은 클론코딩, 학원, 국비교육, 부트캠프, 스터디, 유튜브를 봐도 무슨 얘긴지 모르면 이곳으로 오세요. 개발을 시작할때는 어려운 용어가 필요없어요. 원리부터 시작한다면 누구보다 더 빨리 시작할 수 있습니다.'
+    metaAuthor = '테크냥이'
 
 # Main menu which appears below site header.
 [[menu.main]]

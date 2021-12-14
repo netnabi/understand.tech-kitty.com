@@ -1,5 +1,5 @@
 ---
-title: "헬로우"
+title: "개발자 되기"
 date: 2021-12-11T12:13:32+09:00
 description: "주니어 개발자 입문 강좌. Junior Developer introduction."
 tags: [개발자 입문]

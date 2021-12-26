@@ -37,7 +37,7 @@ summaryLength = 20
     subtitle = "다시 이해하는 IT 개발 이야기"
 
     # Content types which are included in home page recent posts list.
-    mainSections = ["001_coding_start"]
+    mainSections = ["001_coding_start", "003_issues"]
 
     # Content types which are excludes Disqus comments.
     disableDisqusTypes = []
@@ -82,6 +82,11 @@ weight = 1
 name = "개발자 되기"
 url = "/001_coding_start"
 weight = 2
+
+[[menu.main]]
+name = "IT 이슈"
+url = "/003_issues"
+weight = 3
 
 [[menu.main]]
 name = "태그"

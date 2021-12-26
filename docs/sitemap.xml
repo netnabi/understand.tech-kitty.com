@@ -2,6 +2,36 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://tech-kitty.com/003_issues/</loc>
+    <lastmod>2021-12-26T15:08:00+09:00</lastmod>
+  </url><url>
+    <loc>https://tech-kitty.com/tags/cve-2021-4104/</loc>
+    <lastmod>2021-12-26T15:08:00+09:00</lastmod>
+  </url><url>
+    <loc>https://tech-kitty.com/tags/cve-2021-44228/</loc>
+    <lastmod>2021-12-26T15:08:00+09:00</lastmod>
+  </url><url>
+    <loc>https://tech-kitty.com/tags/cve-2021-45046/</loc>
+    <lastmod>2021-12-26T15:08:00+09:00</lastmod>
+  </url><url>
+    <loc>https://tech-kitty.com/tags/cve-2021-45105/</loc>
+    <lastmod>2021-12-26T15:08:00+09:00</lastmod>
+  </url><url>
+    <loc>https://tech-kitty.com/tags/log4j2/</loc>
+    <lastmod>2021-12-26T15:08:00+09:00</lastmod>
+  </url><url>
+    <loc>https://tech-kitty.com/tags/log4shell/</loc>
+    <lastmod>2021-12-26T15:08:00+09:00</lastmod>
+  </url><url>
+    <loc>https://tech-kitty.com/tags/</loc>
+    <lastmod>2021-12-26T15:08:00+09:00</lastmod>
+  </url><url>
+    <loc>https://tech-kitty.com/003_issues/003_issues-00001/</loc>
+    <lastmod>2021-12-26T15:08:00+09:00</lastmod>
+  </url><url>
+    <loc>https://tech-kitty.com/</loc>
+    <lastmod>2021-12-26T15:08:00+09:00</lastmod>
+  </url><url>
     <loc>https://tech-kitty.com/tags/executor/</loc>
     <lastmod>2021-12-12T11:16:32+09:00</lastmod>
   </url><url>
@@ -14,9 +44,6 @@
     <loc>https://tech-kitty.com/tags/scope/</loc>
     <lastmod>2021-12-12T11:16:32+09:00</lastmod>
   </url><url>
-    <loc>https://tech-kitty.com/tags/</loc>
-    <lastmod>2021-12-12T11:16:32+09:00</lastmod>
-  </url><url>
     <loc>https://tech-kitty.com/tags/trigger/</loc>
     <lastmod>2021-12-12T11:16:32+09:00</lastmod>
   </url><url>
@@ -24,9 +51,6 @@
     <lastmod>2021-12-12T11:16:32+09:00</lastmod>
   </url><url>
     <loc>https://tech-kitty.com/tags/%EC%8A%A4%EC%BD%94%ED%94%84/</loc>
-    <lastmod>2021-12-12T11:16:32+09:00</lastmod>
-  </url><url>
-    <loc>https://tech-kitty.com/</loc>
     <lastmod>2021-12-12T11:16:32+09:00</lastmod>
   </url><url>
     <loc>https://tech-kitty.com/tags/%ED%95%A8%EC%88%98/</loc>

